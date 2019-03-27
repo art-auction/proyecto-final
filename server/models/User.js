@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: String,
     password: String,
-    comments: String,
+    credit: Number,
     role: {
         type: String,
-        enum: ["User", "Autor"],
+        enum: ["User", "Artist"],
         default: 'User'
     },
 

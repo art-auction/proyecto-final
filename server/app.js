@@ -33,6 +33,11 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000']
+}));
+
 // configuración sesión
 app.use(session({
   secret: "dummyvalue",
@@ -85,9 +90,6 @@ app.use('/api', authRoutes)
 
 
 
-app.use(cors({
-  credentials: true,
-  origin: ['http://localhost:3000']
-}));
+
 
 module.exports = app;

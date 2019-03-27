@@ -19,9 +19,9 @@ class Signup extends Component {
             username: "", 
             password: "",
         });
-         this.props.getUser(response)
+        //  this.props.getUser(response)
     })
-    .catch( error => console.log(error) )
+    .catch( error => console.log(error.response) )
   }
   
   handleChange = (event) => {  
