@@ -9,9 +9,17 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const session       = require('express-session');
+const passport      = require('passport');
+
+const cors = require('cors');
+
+require('./configs/passport');
+
+
 
 mongoose
-  .connect('mongodb://localhost/server', {useNewUrlParser: true})
+  .connect('mongodb://localhost/art-auction', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -23,6 +31,23 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+
+// configuración sesión
+app.use(session({
+  secret: "dummyvalue",
+  resave: true,
+  saveUninitialized: true
+}));
+
+
+
+// middlewares sesión
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -50,9 +75,19 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
+// Routings
 
 const index = require('./routes/index');
 app.use('/', index);
 
+const authRoutes = require('./routes/auth-routes')
+app.use('/api', authRoutes)
+
+
+
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000']
+}));
 
 module.exports = app;
