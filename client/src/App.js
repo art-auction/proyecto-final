@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from "./components/Home"
 import Navbar from './components/Navbar'
 
+import Obras from "./components/Obras"
 class App extends Component {
 
   constructor(props){
@@ -44,9 +45,12 @@ class App extends Component {
     
        
         <Switch>
+  <Route exact path="/obras" component={Obras}/>
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>
   <Route exact path="/" component={Home}/>
+  
+
   
   
    </Switch>

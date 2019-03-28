@@ -75,3 +75,19 @@ element.style {
 .Signup.hide {
   right: -30rem;
 }
+.artists-obras{
+  display: flex;
+  justify-content: space-evenly;
+
+
+}
+.card-obras{
+  margin: 20px;
+  box-shadow: 6px 15px 17px 7px rgba(0,0,0,0.27);;
+}
+
+.profile-img img{
+  width: 40%;
+  margin-top: 50%
+
+}

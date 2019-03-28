@@ -77,7 +77,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Estamos en Back, Estamos en Back, Estamos en Back';
 
 
 // Routings
@@ -87,6 +87,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth-routes')
 app.use('/api', authRoutes)
+
+const obras = require("./routes/obras");
+app.use("/api", obras);
 
 
 

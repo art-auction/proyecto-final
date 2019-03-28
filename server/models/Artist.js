@@ -9,11 +9,7 @@ const artistSchema = new Schema({
         pic1: String,
         pic2: String,
         pic3: String,
-
-
-    }
-
-  
+  }
 
 }, {
     timestamps: {
