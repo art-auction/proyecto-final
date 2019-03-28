@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 class Signup extends Component {
   constructor(props){
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = { 
+     username: '',
+     password: '',  
+     Redirect:false,
+    };
     this.service = new AuthService();
   }
   handleFormSubmit = (event) => {
@@ -15,10 +19,11 @@ class Signup extends Component {
   
     this.service.signup(username, password)
     .then( response => {
-        console.log(response)
+       
         this.setState({
             username: "", 
             password: "",
+            Redirect: true,
         });
         //  this.props.getUser(response)
     })
@@ -32,8 +37,16 @@ class Signup extends Component {
       
   
   render(){
-    return(
-      <div>
+
+    let classes = 'Signup ';
+    classes += this.props.show ? 'show' : 'hide'
+    console.log(this.props.show)
+
+    return(       
+      
+      
+    
+      <div className={classes}>
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label><br></br>
           <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/><br></br>
@@ -49,6 +62,7 @@ class Signup extends Component {
         </p>
   
       </div>
+      
     )
   }
 

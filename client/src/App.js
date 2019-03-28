@@ -11,7 +11,7 @@ class App extends Component {
 
   constructor(props){
     super(props)
-    this.state = { loggedInUser: null };
+    this.state = { loggedInUser: null, showLogin: false, showSignup:false};
   }
 
   getTheUser= (userObj) => {
@@ -20,10 +20,27 @@ class App extends Component {
     })
   }
 
+  toggleLogin = () => {
+    this.setState({showLogin: !this.state.showLogin})
+  }
+
+  toggleSignup = () => {
+    console.log("entra")
+    this.setState({showSignup: !this.state.showSignup})
+  }
+
+
   render() {
     return (
       <div className="App">
-<Navbar />
+      <Navbar toggleLogin={this.toggleLogin} toggleSignup={this.toggleSignup}/>
+      <Login show={this.state.showLogin} toggleLogin={this.toggleLogin}/>
+      <Signup show={this.state.showSignup} />
+
+     
+
+
+
     
        
         <Switch>

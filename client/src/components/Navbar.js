@@ -2,8 +2,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import authService from '../components/auth/auth-service';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
-class Navbar extends Component {
+
+
+class NavbarComponent extends Component {
 
     constructor(props) {
 
@@ -30,43 +34,53 @@ class Navbar extends Component {
 
     render() {
 
-        if (this.state.loggedInUser) {
+       // if (this.state.loggedInUser) {
 
             return (
-                <nav className="nav-style">
-                    <small>Bienvenido, {this.state.loggedInUser.username}</small>
-                    <ul>
-                        <li>
-                            <Link to='/'>Administrar pinturas</Link>
-                        </li>
-                        <Link to='/'onClick={() => this.logoutUser()}>
-                            Cerrar sesión
-                        </Link>
-                    </ul>
-                </nav>
+
+                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+
+                <Navbar.Brand >Art & auction</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+
+                  <Nav className="mr-auto">
+
+                    <Link className="link-nav" to='/' href="#features">Ver pinturas</Link>                                   
+                    
+                  </Nav>
+
+                  <Nav>
+                    <button className="link-nav" onClick={this.props.toggleLogin}>Iniciar Sesión</button>
+                  {/* <Link className="link-nav" to='/login' href="#pricing">Iniciar sesion</Link>      */}
+                    
+                  </Nav>
+
+                  <Nav>
+                  <button className="link-nav" onClick={this.props.toggleSignup}>Registrate</button>
+            {/*<Link className="link-nav" to="/signup">Registrate</Link> */}             
+                    
+                  </Nav>
+                  <Nav>
+                    <Link className="link-nav" to="/">Cerrar sesion</Link>              
+                    
+                  </Nav>
+                </Navbar.Collapse>
+
+              </Navbar>
+
+              
             )
+
+            }
+
         }
 
-        else {
+        
+           
 
-            return (
-                <nav className="nav-style">
-                    <ul>
-                        <li>
-                            <Link to='/'>Ver pinturass</Link>
-                        </li>
-                        <li>
-                            <Link to='/login'>Iniciar sesión</Link>
-                        </li>
-                        <li>
-                            <Link to='/signup'>Registrarse</Link>
-                        </li>
-                    </ul>
-                </nav>
-            )
-        }
-    }
 
-}
 
-export default Navbar;
+
+
+export default NavbarComponent;

@@ -10,10 +10,8 @@ return(
     <div>
 
 
-HOLA HOLA<br></br>
 
-<Link exact to="/signup">Signup</Link><br></br>
-<Link exact to="/login">Login</Link>
+
 
     </div>
 )
