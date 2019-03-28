@@ -13,7 +13,7 @@ mongoose
   });
 
 
-  let artists = [
+let artists = [
     {
       username: "Carlos",
       password: bcrypt.hashSync("Carlos", bcrypt.genSaltSync(bcryptSalt)),
@@ -30,7 +30,7 @@ mongoose
       profileImg: "https://www.whatsappprofiledpimages.com/wp-content/uploads/2018/07/funny-profile-pic7-300x256.jpg",
       obras: {
         pic1: "https://cdn11.bigcommerce.com/s-vak6ug5w2j/images/stencil/500x659/products/22094/22491/Valentin_Serov_-_Portrait_of_Praskovia_Anatolievna_Mamontova_20x24_wunaoc__64870.1486486710.jpg?c=2&imbypass=on",
-        pic2: "https://aamnba.org.ar/wp-content/uploads/2018/10/velazquez.jpg", 
+        pic2: "http://2.bp.blogspot.com/-_9SH_YnN1m0/UNb6uBpYIRI/AAAAAAAAAao/7SVdMoBsStc/s1600/Cornelis+van+der+Geest+(ca.+1620).+%C3%93.+s.+tabla,+37,5+x+32,5+cm.+The+National+Gallery,+Londres..jpg", 
         pic3: "https://img.posterlounge.co.uk/img/products/320000/310800/310800_poster_l.jpg",
 
       }

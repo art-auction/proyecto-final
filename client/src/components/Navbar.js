@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import authService from '../components/auth/auth-service';
@@ -53,7 +52,7 @@ class Navbar extends Component {
                 <nav className="nav-style">
                     <ul>
                         <li>
-                            <Link to='/'>Ver pinturass</Link>
+                            <Link to='/obras'>Obras</Link>
                         </li>
                         <li>
                             <Link to='/login'>Iniciar sesión</Link>
