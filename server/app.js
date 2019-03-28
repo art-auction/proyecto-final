@@ -90,9 +90,6 @@ app.use('/api', authRoutes)
 
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 0c62177cc07c260b68a24d484b07a61e6b708cbd
 module.exports = app;

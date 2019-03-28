@@ -3,8 +3,16 @@ const Schema = mongoose.Schema;
 
 const artistSchema = new Schema({
     username: String,
-    password: String,    
-    imageUrl: String,
+    password: String,
+    profileImg: String,  
+    obras:{
+        pic1: String,
+        pic2: String,
+        pic3: String,
+
+
+    }
+
   
 
 }, {
@@ -15,5 +23,5 @@ const artistSchema = new Schema({
 });
 
 
-const Artist = mongoose.model('User', artistSchema);
+const Artist = mongoose.model('Artist', artistSchema);
 module.exports = Artist;
