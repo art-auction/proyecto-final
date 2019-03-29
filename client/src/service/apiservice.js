@@ -9,9 +9,18 @@ class Apiservice {
         })
     }
 
-    getObra = () => {
+    getObras = () => {
         return this.service.get("/obras")
         .then(response => response.data)
+    }
+    getObra = idObra =>{
+    return this.service.get(`artist-profile/${idObra}`)
+    .then(response => response.data)
+    }
+
+    postNewObra = obra =>{
+        return this.service.post("postImage", obra)
+        .then(response =>response.data)
     }
 
 }

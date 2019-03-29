@@ -53,6 +53,7 @@ element.style {
 
 .Login.show {
   right: 0;
+  z-index: 9;
 }
 
 .Login.hide {
@@ -70,6 +71,7 @@ element.style {
 
 .Signup.show {
   right: 0;
+  z-index: 9;
 }
 
 .Signup.hide {

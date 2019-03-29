@@ -7,9 +7,13 @@ router.get("/obras", (req, res) => {
  Artist.find()
     .then(data=>res.json(data))
     .catch(err=>console.log(err))
-    //res.json(console.log(res.data))
+   
 } )
-
+ router.get("/artist-profile/:id", (req, res) => {
+     Artist.findById(req.params.id)
+     .then(data=>res.json(data))
+     .catch(err=>console.log(err))
+ })
 
 
 module.exports = router;
