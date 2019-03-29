@@ -53,10 +53,12 @@ element.style {
 
 .Login.show {
   right: 0;
+  z-index: 9;
 }
 
 .Login.hide {
   right: -30rem;
+  z-index: 9;
 }
 
 .Signup {
@@ -70,10 +72,12 @@ element.style {
 
 .Signup.show {
   right: 0;
+  z-index: 9;
 }
 
 .Signup.hide {
   right: -30rem;
+  z-index: 9;
 }
 .artists-obras{
   display: flex;

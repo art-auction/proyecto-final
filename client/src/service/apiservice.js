@@ -18,6 +18,11 @@ class Apiservice {
     .then(response => response.data)
     }
 
+    postNewObra = obra =>{
+        return this.service.post("postImage", obra)
+        .then(response =>response.data)
+    }
+
 }
 
 export default Apiservice
