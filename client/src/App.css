@@ -44,7 +44,7 @@ element.style {
 
 .Login {
   height: 100%;
-  width: 30rem;
+  width: 50rem;
   background: teal;
   position: absolute;
   right: 0;
@@ -56,12 +56,12 @@ element.style {
 }
 
 .Login.hide {
-  right: -30rem;
+  right: -50rem;
 }
 
 .Signup {
   height: 100%;
-  width: 30rem;
+  width: 50rem;
   background: teal;
   position: absolute;
   right: 0;
@@ -73,7 +73,7 @@ element.style {
 }
 
 .Signup.hide {
-  right: -30rem;
+  right: -50rem;
 }
 .artists-obras{
   display: flex;
@@ -91,3 +91,11 @@ element.style {
   margin-top: 50%
 
 }
+.login-form{
+  margin-top: 40%;
+}
+.form-signup{
+  margin-top:40%;
+}
+
+

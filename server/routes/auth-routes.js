@@ -13,11 +13,6 @@ authRoutes.post('/signup', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
 
-   
-
-
-
-  
     if (!username || !password) {
       res.status(400).json({ message: 'Provide username and password' });
       return;
@@ -72,6 +67,8 @@ authRoutes.post('/signup', (req, res, next) => {
     });
 });
 
+
+
 authRoutes.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, theUser, failureDetails) => {
         if (err) {
@@ -100,6 +97,8 @@ authRoutes.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
+
+
 authRoutes.post('/logout', (req, res, next) => {
     // req.logout() is defined by passport
     req.logout();
@@ -109,11 +108,56 @@ authRoutes.post('/logout', (req, res, next) => {
 
 authRoutes.get('/loggedin', (req, res, next) => {
     // req.isAuthenticated() is defined by passport
+    console.log(req.isAuthenticated())
     if (req.isAuthenticated()) {
         res.status(200).json(req.user);
         return;
     }
     res.status(403).json({ message: 'Unauthorized' });
 });
+
+//Roles
+
+/*function checkRoles(role) {
+    return function(req, res, next) {
+       
+        if (req.isAuthenticated() && req.user.role === role) {
+            return next();
+        } else {
+            res.redirect('/auth/login')
+        }
+    }
+}
+const checkUser = checkRoles('User');
+const checkArtist = checkRoles('Artist');
+
+
+
+
+
+router.get("/User", checkUser, (req, res) => {
+    
+    Obra.find()
+        .then(hospitals => {
+            res.render("auth/Consejeria", { result: JSON.stringify(hospitals) });
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+})
+router.get("/Hospital", checkHospital, (req, res) => {
+
+    Hospital.find()
+        .then(hospitals => {
+            res.render("auth/Hospital", { result: JSON.stringify(hospitals) });
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})*/
+
+
+
 
 module.exports = authRoutes;

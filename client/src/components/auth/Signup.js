@@ -24,8 +24,11 @@ class Signup extends Component {
             username: "", 
             password: "",
             Redirect: true,
+        },() => {
+          this.props.toggleSignup();
+
         });
-        //  this.props.getUser(response)
+       
     })
     .catch( error => console.log(error.response) )
   }
@@ -40,19 +43,26 @@ class Signup extends Component {
 
     let classes = 'Signup ';
     classes += this.props.show ? 'show' : 'hide'
-    console.log(this.props.show)
+   
 
     return(       
       
       
     
       <div className={classes}>
+      <div className="form-signup">
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label><br></br>
           <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/><br></br>
           
           <label>Password:</label><br></br>
           <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} /><br></br>
+          <label for="rol">Tipo de usuario</label><br></br>
+                <select name="role" id="">
+                  <option value="Usuario">User</option>
+                  <option value="Artist">Artist</option>
+                  
+                </select><br></br>
           
           <input type="submit" value="Signup" />
         </form>
@@ -62,7 +72,7 @@ class Signup extends Component {
         </p>
   
       </div>
-      
+      </div>
     )
   }
 
