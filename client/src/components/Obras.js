@@ -17,7 +17,7 @@ constructor(){
 }
 
 getArtists = ()=>{
-   return this.serviceObras.getObra()
+   return this.serviceObras.getObras()
      .then(obras=>{
          this.setState({
              artists: obras

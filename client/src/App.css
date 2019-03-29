@@ -91,3 +91,21 @@ element.style {
   margin-top: 50%
 
 }
+
+.black{
+color: black
+}
+.profile-art{
+  display: flex;
+
+}
+
+.profile-art img{
+  width: 100%;
+  margin-top: 50%;
+  box-shadow: 6px 15px 17px 7px rgba(0,0,0,0.27);;
+
+}
+.link-nav{
+text-decoration: none
+}

@@ -45,18 +45,18 @@ class NavbarComponent extends Component {
 
                   <Nav className="mr-auto">
 
-                    <Link className="link-nav" to='/' href="#features">Ver pinturas</Link>                                   
+                    <Link className="link-nav" to='/obras' href="#features">Obras</Link>                                   
                     
                   </Nav>
 
                   <Nav>
-                    <button className="link-nav" onClick={this.props.toggleLogin}>Iniciar Sesión</button>
+                    <button className="link-nav black" onClick={this.props.toggleLogin}>Iniciar Sesión</button>
                   {/* <Link className="link-nav" to='/login' href="#pricing">Iniciar sesion</Link>      */}
                     
                   </Nav>
 
                   <Nav>
-                  <button className="link-nav" onClick={this.props.toggleSignup}>Registrate</button>
+                  <button className="link-nav black" onClick={this.props.toggleSignup}>Registrate</button>
             {/*<Link className="link-nav" to="/signup">Registrate</Link> */}             
                     
                   </Nav>

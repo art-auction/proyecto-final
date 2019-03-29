@@ -1,5 +1,6 @@
 import React from "react"
-
+import { Link } from 'react-router-dom'
+import ArtistProfile from "./ArtistProfile"
 
  const CardObras = artist =>{
 
@@ -12,12 +13,15 @@ return(
                 <div className="card-body">
                     <h5 className="card-title">{artist.username}</h5>
                     
-                    
+                   <Link className="btn btn-sm btn-outline-dark" onClick={console.log(artist)} to={`/artist-profile/${artist._id}`}>Perfil de artista</Link>
+                   
+                   
                
                 </div>
                 </div>
+
     
-    <div className="col-sm-4">
+    <div className="col-sm-3">
             <div className="card card-obras">
                 <img className="card-img-top" src={artist.obras.pic1} alt="Card image cap"></img>
                 <div className="card-body">
@@ -27,7 +31,7 @@ return(
                 </div>
             </div>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-3">
             <div className="card card-obras">
                 <img className="card-img-top" src={artist.obras.pic2} alt="Card image cap"></img>
                 <div className="card-body">
@@ -37,7 +41,7 @@ return(
                 </div>
             </div>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-3">
             <div className="card card-obras">
                 <img className="card-img-top" src={artist.obras.pic3} alt="Card image cap"></img>
                 <div className="card-body">
