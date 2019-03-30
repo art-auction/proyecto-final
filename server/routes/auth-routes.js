@@ -116,9 +116,24 @@ authRoutes.get('/loggedin', (req, res, next) => {
     res.status(403).json({ message: 'Unauthorized' });
 });
 
+
+
+authRoutes.get('/subasta', (req, res) => {
+    // req.isAuthenticated() is defined by passport
+    if (req.isAuthenticated()) {
+        res.render ('subasta')
+        return;
+    }
+    res.status(403).json({ message: 'Unauthorized' });
+});
+
+
+
+
+
 //Roles
 
-/*function checkRoles(role) {
+function checkRoles(role) {
     return function(req, res, next) {
        
         if (req.isAuthenticated() && req.user.role === role) {
@@ -135,7 +150,12 @@ const checkArtist = checkRoles('Artist');
 
 
 
-router.get("/User", checkUser, (req, res) => {
+/*router.get("/User", checkUser, (req, res) => {
+
+    router.get('/private', checkAdmin, (req, res) => {
+        res.render('private', {user: req.user});
+      });
+
     
     Obra.find()
         .then(hospitals => {
@@ -146,7 +166,7 @@ router.get("/User", checkUser, (req, res) => {
         })
 
 })
-router.get("/Hospital", checkHospital, (req, res) => {
+router.get("/Hospital", checkArtist, (req, res) => {
 
     Hospital.find()
         .then(hospitals => {

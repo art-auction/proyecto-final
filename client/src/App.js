@@ -6,6 +6,7 @@ import Login from './components/auth/Login';
 import { Switch, Route } from 'react-router-dom';
 import Home from "./components/Home"
 import Navbar from './components/Navbar'
+import Subasta from './components/Subasta'
 
 import Obras from "./components/Obras"
 import ArtistProfile from './components/ArtistProfile';
@@ -33,6 +34,7 @@ class App extends Component {
     console.log("entra")
     if(this.state.showLogin) this.setState({showLogin: !this.state.showLogin})    
     this.setState({showSignup: !this.state.showSignup})
+    this.ceckLoggedin()
   }
 
   ceckLoggedin = () => {
@@ -48,7 +50,7 @@ class App extends Component {
     this.service.logout()
         .then(() => {
             this.setState({ loggedInUser: false });
-           // this.props.setUser(null);
+           
         })
 }
 
@@ -58,13 +60,7 @@ class App extends Component {
       <div className="App">
       <Navbar toggleLogin={this.toggleLogin} toggleSignup={this.toggleSignup} logoutUser={this.logoutUser} loggedInUser={this.state.loggedInUser}/>
       <Login show={this.state.showLogin} toggleLogin={this.toggleLogin}/>
-      <Signup show={this.state.showSignup} toggleSignup={this.toggleSignup} />
-
-     
-
-
-
-    
+      <Signup show={this.state.showSignup} toggleSignup={this.toggleSignup} />    
        
         <Switch>
   <Route exact path="/artist-profile/:id" component={ArtistProfile}/>
@@ -72,11 +68,15 @@ class App extends Component {
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>
   <Route exact path="/" component={Home}/>
-  
+   {
+     this.state.loggedInUser ? <Route   path="/subasta" exact render={() => <Subasta loggedInUser={this.state.loggedInUser} />} />
 
+     : 
+     null
+   }
+ 
   
-  
-   </Switch>
+       </Switch>
       </div>
     );
   }
