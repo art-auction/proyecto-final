@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Apiservice from "../service/apiservice"
+import AddImage from "../components/addimage"
 
 class ArtistProfile extends Component{
 
@@ -39,7 +40,7 @@ render(){
                 {this.state.profile.obras ? <img src={this.state.profile.obras.pic3} ></img>: null}
 
             </div>
-         
+            <AddImage addingImage={this.getProfile}/>
 
             </div>
 

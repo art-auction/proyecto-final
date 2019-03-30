@@ -41,7 +41,7 @@ app.use(cors({
 // configuración sesión
 app.use(session({
   secret: "dummyvalue",
-  resave: true,
+  resave: true, 
   saveUninitialized: true
 }));
 
@@ -91,7 +91,7 @@ app.use('/api', authRoutes)
 const obras = require("./routes/obras");
 app.use("/api", obras);
 
-
+app.use('/api', require('./routes/file-upload-routes'));
 
 
 
