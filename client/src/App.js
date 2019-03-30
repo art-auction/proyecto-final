@@ -8,6 +8,8 @@ import Home from "./components/Home"
 import Navbar from './components/Navbar'
 import Subasta from './components/Subasta'
 
+
+
 import Obras from "./components/Obras"
 import ArtistProfile from './components/ArtistProfile';
 class App extends Component {
@@ -68,12 +70,8 @@ class App extends Component {
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>
   <Route exact path="/" component={Home}/>
-   {
-     this.state.loggedInUser ? <Route   path="/subasta" exact render={() => <Subasta loggedInUser={this.state.loggedInUser} />} />
-
-     : 
-     null
-   }
+  <Route exact path="/subasta" User={this.state.loggedInUser} component={Subasta}/>
+  
  
   
        </Switch>
