@@ -17,10 +17,13 @@ router.get("/obras", (req, res) => {
 
 
  router.get("/artist-profile/:id", (req, res) => {
-     Artist.findById(req.params.id)
-     .then(data=>res.json(data))
+     Obra.find({ author: req.params.id})
+     .populate("author")
+     .then(data=>console.log(data))
      .catch(err=>console.log(err))
  })
+ 
+
 
 
 module.exports = router;

@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const artistSchema = new Schema({
     username: String,
     password: String,
     profileImg: String,  
-    obras:[String]
+   // obras:[String]
 
 }, {
     timestamps: {
