@@ -29,7 +29,8 @@ render(){
        
         <div className="col-md-4 inf-artist">
         <h1>{this.state.profile.username}</h1>
-        <p>El señor Grigoriciuc es una artista muy respetado en Transilvania</p>
+        <p>El señor {this.state.profile.username} es una artista muy respetado en su país.
+         Su estilo realista está influenciado por la obra de grandes maestros rusos del gupo "Los Itinerantes" y de otrso grandes maestros del barroco</p>
         </div>
         <article className="col-md-8 profile-art">
         <div className="container">
@@ -49,13 +50,15 @@ render(){
                 {this.state.profile.obras ? <img src={this.state.profile.obras[2]} ></img>: null}
 
             </div>
-            <AddImage addingImage={this.getProfile}/>
+           
            
             </div>
+            <AddImage addingImage={this.getProfile}/>
             </div>
             </article>
+            
             </div>
-           
+            
            
         </div>
     
