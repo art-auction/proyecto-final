@@ -38,7 +38,9 @@ render(){
     <h1>Obras</h1>
     
 <div className="row">
-{this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)}
+{
+    this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
+    }
 
 </div>
 

@@ -62,8 +62,8 @@ class App extends Component {
       <div className="App">
       <Navbar toggleLogin={this.toggleLogin} toggleSignup={this.toggleSignup} logoutUser={this.logoutUser} loggedInUser={this.state.loggedInUser}/>
       <Login show={this.state.showLogin} toggleLogin={this.toggleLogin}/>
-      <Signup show={this.state.showSignup} toggleSignup={this.toggleSignup} />    
-       
+      <Signup show={this.state.showSignup} toggleSignup={this.toggleSignup} />
+ 
         <Switch>
   <Route exact path="/artist-profile/:id" component={ArtistProfile}/>
   <Route exact path="/obras" component={Obras}/>
