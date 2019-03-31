@@ -34,16 +34,16 @@ componentDidMount(){
 render(){
   return(
 
- <div className="container">
+ <div className="container container-yalose">
     <h1>Obras</h1>
-    <div className="">
+    
 <div className="row">
 {this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)}
 
 </div>
 
     </div>
-    </div>
+
   )
 }
 

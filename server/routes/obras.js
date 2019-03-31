@@ -9,11 +9,6 @@ router.get("/obras", (req, res) => {
     .catch(err=>console.log(err))
    
 } )
-// router.post("/postobra", (req, res)=>{  
-//  Artist.find()
-//    .then(data =>  res.json(dasta[0].obras.push("data")))
-//    .catch(err=>console.log(err))
-// })
 
 
  router.get("/artist-profile/:id", (req, res) => {

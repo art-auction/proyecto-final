@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
 
 class Subasta extends Component {
@@ -10,7 +10,7 @@ class Subasta extends Component {
         super(props)
 
         this.state = {
-            loggedInUser: this.props.User
+            loggedInUser: this.props.loggedInUser
         }
 
     }
