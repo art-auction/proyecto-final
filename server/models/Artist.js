@@ -6,7 +6,7 @@ const artistSchema = new Schema({
     username: String,
     password: String,
     profileImg: String,  
-   // obras:[String]
+    obras:[String]
 
 }, {
     timestamps: {
