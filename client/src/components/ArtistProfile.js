@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Apiservice from "../service/apiservice"
+import AddImage from "../components/addimage"
 
 class ArtistProfile extends Component{
 
@@ -27,19 +28,19 @@ render(){
         <div className="row">
 
             <div className="col-md-4">
-                {this.state.profile.obras ? <img src={this.state.profile.obras.pic1} ></img>: null}
+                {this.state.profile.obras ? <img src={this.state.profile.obras[0]} ></img>: null}
                 
             </div>
             <div className="col-md-4">
     
-                {this.state.profile.obras ? <img src={this.state.profile.obras.pic2} ></img>: null}
+                {this.state.profile.obras ? <img src={this.state.profile.obras[1]} ></img>: null}
 
             </div><div className="col-md-4">
     
-                {this.state.profile.obras ? <img src={this.state.profile.obras.pic3} ></img>: null}
+                {this.state.profile.obras ? <img src={this.state.profile.obras[2]} ></img>: null}
 
             </div>
-         
+            <AddImage addingImage={this.getProfile}/>
 
             </div>
 

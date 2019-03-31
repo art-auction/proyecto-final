@@ -18,10 +18,18 @@ class Apiservice {
     .then(response => response.data)
     }
 
-    postNewObra = obra =>{
-        return this.service.post("postImage", obra)
-        .then(response =>response.data)
+    handleUpload = theFile =>{
+        return this.service.post("/upload", theFile)
+        .then(res=>res.data)
+        .catch(err=>console.log(err))
     }
+    postNewObra = newobra =>{
+        return this.service.post("postobra", newobra)
+        .then(response =>response.data)
+        .catch(err=>console.log(err))
+    }
+
+    
 
 }
 

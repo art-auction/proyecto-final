@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 import Apiservice from "../service/apiservice"
 import CardObras from "./CardObras"
 
@@ -25,16 +24,10 @@ getArtists = ()=>{
      }
         )
 
-}
-
-
+ }
 
 componentDidMount(){
     this.getArtists()
-    /*this.serviceObras.getObra()
-    .then(obras => {
-        console.log(obras);
-    })*/
 }
 
 
@@ -43,19 +36,15 @@ render(){
 
  <div className="container">
     <h1>Obras</h1>
+    <div className="">
 <div className="row">
-{
-    this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
-    //{artist.username}
-}
+{this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)}
 
 </div>
 
     </div>
+    </div>
   )
-
-
- }
-
+}
 
 }
