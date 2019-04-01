@@ -3,7 +3,7 @@ import authService from './components/auth/auth-service';
 import './App.css';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from "./components/Home"
 import Navbar from './components/Navbar'
 import Subasta from './components/Subasta'
@@ -16,8 +16,10 @@ class App extends Component {
 
   constructor(props){
     super(props)
-    this.state = { loggedInUser: null, showLogin: false, showSignup:false};
+    this.state = { loggedInUser: false, showLogin: false, showSignup:false};
     this.service = new authService()
+    this.ceckLoggedin();
+
   }
 
   getTheUser= (userObj) => {
@@ -43,7 +45,11 @@ class App extends Component {
     this.service.loggedin()
       .then(e=>{
         console.log(e)
-        if(e) this.setState({ ...this.state, loggedInUser:true})
+        this.state.loggedInUser = true;
+        if(e) this.setState({ ...this.state, loggedInUser:true}, () => {})
+      })
+      .catch(() => {
+        this.setState({ ...this.state, loggedInUser:null})
       })
 
   }
@@ -51,13 +57,15 @@ class App extends Component {
   logoutUser = () => {
     this.service.logout()
         .then(() => {
-            this.setState({ loggedInUser: false });
+            this.setState({ loggedInUser: null });
            
         })
 }
 
 
   render() {
+
+    console.log(this.state.loggedInUser)
     return (
       <div className="App">
       <Navbar toggleLogin={this.toggleLogin} toggleSignup={this.toggleSignup} logoutUser={this.logoutUser} loggedInUser={this.state.loggedInUser}/>
@@ -70,8 +78,8 @@ class App extends Component {
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>
   <Route exact path="/" component={Home}/>
-  <Route exact path="/subasta" User={this.state.loggedInUser} component={Subasta}/>
-  
+  {this.state.loggedInUser ? <Route exact path="/subasta" User={this.state.loggedInUser} component={Subasta}/>:null}
+
  
   
        </Switch>

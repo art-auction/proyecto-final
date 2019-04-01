@@ -10,25 +10,34 @@ class Subasta extends Component {
         super(props)
 
         this.state = {
-            loggedInUser: this.props.loggedInUser
+            loggedInUser: this.props.User
         }
 
     }
 
 
     render(){
-        console.log(this.state.loggedInUser)
-
-        if(this.state.loggedInUser) {return (
-            <div className="subasta-form">
-                <p>Bienvenidos a la subasta del siglo!!!</p>
-            </div>
-        )} else return (<Redirect to= '/' />)
+        console.log(this.props)
+        // return(
+        //     <div>
+        //         <p>Pepe</p>
+        //     </div>
+        // )
+        // if(this.props.User == false) {return (
+        //     <div className="subasta-form">
+        //         <p>Bienvenidos a la subasta del siglo!!!</p>
+        //     </div>
+        // )} else return (<Redirect to= '/' />)
+      
+            return (
+                    <div className="subasta-form">
+                        <p>Bienvenidos a la subasta del siglo!!!</p>
+                    </div>
+                )
+        
 
              
-       
-    
-}
+    }
 }   
 
 export default Subasta

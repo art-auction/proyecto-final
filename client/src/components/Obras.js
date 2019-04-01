@@ -36,6 +36,7 @@ render(){
 
  <div className="container container-yalose">
     <h1>Obras</h1>
+    <hr></hr>
     
 <div className="row">
 {

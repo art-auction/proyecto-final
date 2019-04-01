@@ -119,6 +119,8 @@ element.style {
 }
 h1{
   padding: 20px;
+  font-family:   "Financier Display", Georgia, sans-serif;
+  margin-top: 20px
 }
 .card-title{
   font-size: 7em;
@@ -156,3 +158,9 @@ h1{
 background-color: black;
 background-size: contain
 }
+
+
+
+  .Login, .Signup {
+    position: fixed;
+  }

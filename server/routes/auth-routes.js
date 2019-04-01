@@ -139,43 +139,26 @@ function checkRoles(role) {
         if (req.isAuthenticated() && req.user.role === role) {
             return next();
         } else {
-            res.redirect('/auth/login')
+            res.redirect('/login')
         }
-    }
-}
+    
+
 const checkUser = checkRoles('User');
 const checkArtist = checkRoles('Artist');
 
 
 
 
+authRoutes.get('/private', checkUser, (req, res) => {
+    res.render('private', {user: req.user});
+  });
+  
+  authRoutes.get('/posts', checkArtist, (req, res) => {
+    res.render('private', {user: req.user});
+  });  
 
-/*router.get("/User", checkUser, (req, res) => {
-
-    router.get('/private', checkAdmin, (req, res) => {
-        res.render('private', {user: req.user});
-      });
-
-    
-    Obra.find()
-        .then(hospitals => {
-            res.render("auth/Consejeria", { result: JSON.stringify(hospitals) });
-        })
-        .catch(err => {
-            console.log(err)
-        })
-
-})
-router.get("/Hospital", checkArtist, (req, res) => {
-
-    Hospital.find()
-        .then(hospitals => {
-            res.render("auth/Hospital", { result: JSON.stringify(hospitals) });
-        })
-        .catch(err => {
-            console.log(err)
-        })
-})*/
+    }
+}
 
 
 
