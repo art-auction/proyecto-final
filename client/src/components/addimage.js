@@ -85,8 +85,13 @@ this.service.postNewObra(uploadImage)
 
 render() {
     return (
-        <div>
+        <div> 
+            {
+                this.user ?
+           
             <button onClick={this.openModal} className="btn btn-add">Nueva obra</button>
+            : null
+        }
             <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
 
                 <h2>Nueva obra</h2>
@@ -105,6 +110,7 @@ render() {
                 </form>
 
             </Modal>
+           
         </div>
     )
 }

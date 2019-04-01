@@ -8,6 +8,7 @@ class Signup extends Component {
     this.state = { 
      username: '',
      password: '',  
+     role: '',
      Redirect:false,
     };
     this.service = new AuthService();
@@ -16,13 +17,15 @@ class Signup extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+    const role = this.state.role;
   
-    this.service.signup(username, password)
+    this.service.signup(username, password, role)
     .then( response => {
        
         this.setState({
             username: "", 
             password: "",
+            role: "",
             Redirect: true,
         },() => {
           this.props.toggleSignup();
@@ -58,8 +61,8 @@ class Signup extends Component {
           <label>Password:</label><br></br>
           <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} /><br></br>
           <label for="rol">Tipo de usuario</label><br></br>
-                <select name="role" id="">
-                  <option value="Usuario">User</option>
+                <select onChange={ e => this.handleChange(e)} name="role" id="" >
+                  <option value="User"  >User</option>
                   <option value="Artist">Artist</option>
                   
                 </select><br></br>

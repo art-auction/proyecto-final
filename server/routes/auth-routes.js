@@ -12,6 +12,7 @@ const User       = require('../models/User');
 authRoutes.post('/signup', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
+    const role = req.body.role;
 
     if (!username || !password) {
       res.status(400).json({ message: 'Provide username and password' });
@@ -40,7 +41,8 @@ authRoutes.post('/signup', (req, res, next) => {
   
         const aNewUser = new User({
             username:username,
-            password: hashPass
+            password: hashPass,
+            role: role
         });
   
         aNewUser.save(err => {
@@ -116,12 +118,27 @@ authRoutes.get('/loggedin', (req, res, next) => {
     res.status(403).json({ message: 'Unauthorized' });
 });
 
+//Roles
+
+
+function checkRoles(role) {
+    return function(req, res, next) {
+       
+        if (req.isAuthenticated() && req.user.role === role) {
+            return next();
+        } else {
+            res.status(403).json({ message: 'Unauthorized' });
+        }
+    
+
+const checkUser = checkRoles('User');
+const checkArtist = checkRoles('Artist');
 
 
 authRoutes.get('/subasta', (req, res) => {
     // req.isAuthenticated() is defined by passport
     if (req.isAuthenticated()) {
-        res.render ('subasta')
+        res.status(200).json(req.user);
         return;
     }
     res.status(403).json({ message: 'Unauthorized' });
@@ -131,20 +148,6 @@ authRoutes.get('/subasta', (req, res) => {
 
 
 
-//Roles
-
-function checkRoles(role) {
-    return function(req, res, next) {
-       
-        if (req.isAuthenticated() && req.user.role === role) {
-            return next();
-        } else {
-            res.redirect('/login')
-        }
-    
-
-const checkUser = checkRoles('User');
-const checkArtist = checkRoles('Artist');
 
 
 

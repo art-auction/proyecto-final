@@ -10,6 +10,7 @@ class Login extends Component {
     this.state = { 
       username: '', 
       password: '', 
+      role:"",
       Redirect:false
     };
     this.service = new AuthService();
@@ -21,18 +22,20 @@ class Login extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-    this.service.login(username, password)
+    const role = this.state.role;
+    this.service.login(username, password, role)
     .then( response => {
         // this.setState({ username: "", password: "" , Redirect:true});
         this.setState({ 
           username: "",
-         password: "" , 
+         password: "" ,
+         role: "" ,
          Redirect:true,
         } ,() => {
           this.props.toggleLogin();
         });
 
-        // this.props.getUser(response)
+       //this.props.getUser(response)
         // window.location.assign("/signup")
         
       })
@@ -41,6 +44,7 @@ class Login extends Component {
     
   handleChange = (event) => {  
     const {name, value} = event.target;
+    console.log(value, "<----")
     this.setState({[name]: value});
   }
     
@@ -63,9 +67,9 @@ class Login extends Component {
             <label>Password:</label><br></br>
             <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} /><br></br>
             <label for="rol">Tipo de usuario</label><br></br>
-                <select name="role" id="">
-                  <option value="Usuario">User</option>
-                  <option value="Artist">Artist</option>
+                <select onChange={ e => this.handleChange(e)} name="role" id="">
+                  <option value="User"  >User</option>
+                  <option value="Artist" >Artist</option>
                   
                 </select><br></br>
             
