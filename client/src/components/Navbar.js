@@ -43,7 +43,7 @@ class NavbarComponent extends Component {
 
                   <Nav className="mr-auto">
                     
-                    <Link className="link-nav" to='/obras' href="#features">Obras</Link>                                   
+                    <Link className="link-nav obras-nav" to='/obras' href="#features">Obras</Link>                                   
                     
                   </Nav>
 

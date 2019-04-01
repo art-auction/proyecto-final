@@ -86,9 +86,10 @@ element.style {
 .card-obras{
   
   margin: 10px;
-  box-shadow: 6px 15px 17px 7px rgba(0,0,0,0.27);
+ /* box-shadow: 6px 15px 17px 7px rgba(0,0,0,0.27);*/
   display: flex;
   justify-content: space-between;
+  
 }
 
 .profile-img img{
@@ -155,4 +156,27 @@ h1{
  max-width: 100vw;
 background-color: black;
 background-size: contain
+}
+hr{
+  padding: 10px;
+  
+}
+.container-yalose h1{
+font-family:   "Financier Display", Georgia, sans-serif;
+font-size: 2.8em;
+
+}
+
+.comment-of-artist{
+  padding: 0px 100px 30px 100px;
+  font-family:   "Financier Display", Georgia, sans-serif;
+  font-size: 1.2em
+}
+
+.btn-add{
+background-color: rgba(187, 114, 53, 0.733);
+color: white
+}
+.obras-nav:hover{
+text-decoration: none
 }

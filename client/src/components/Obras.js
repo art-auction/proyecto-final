@@ -36,7 +36,7 @@ render(){
 
  <div className="container container-yalose">
     <h1>Obras</h1>
-    
+    <hr/>
 <div className="row">
 {
     this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
