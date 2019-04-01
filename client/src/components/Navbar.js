@@ -40,13 +40,15 @@ class NavbarComponent extends Component {
 
                 <Navbar.Brand >Art & auction</Navbar.Brand>
                 
-
+                
                   <Nav className="mr-auto">
                     
-                    <Link className="link-nav obras-nav" to='/obras' href="#features">Obras</Link>                                   
+                    <Link className="link-nav obras-nav" to='/obras' href="#features">Obras</Link><br></br> 
+                    <small>Bienvenido: {this.props.loggedInUser}</small><br></br>                                  
                     
                   </Nav>
 
+                  
                   
                   <Nav>
                   <Link to='/'><Button className="link-nav" onClick={this.props.logoutUser} variant="outline-secondary">Cerrar sesion</Button> </Link>             

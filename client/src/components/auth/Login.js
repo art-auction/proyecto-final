@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import AuthService from './auth-service';
 import { Link } from 'react-router-dom';
-//import { Route, Redirect } from 'react-router'
-
-
+import { Redirect } from 'react-router-dom'
 class Login extends Component {
   constructor(props){
     super(props);
@@ -39,7 +37,9 @@ class Login extends Component {
         // window.location.assign("/signup")
         
       })
-      .catch( error => console.log(error) )
+      .catch( error => {
+        this.setState({...this.state, err:"fail login"});
+        console.log(error)} )
   }
     
   handleChange = (event) => {  
@@ -78,6 +78,19 @@ class Login extends Component {
                 </select><br></br>
             
             <input type="submit" value="Iniciar sesion" /><br></br>
+
+
+            {this.state.err ? 
+            <div className="login-form">
+              <p>por favor registrese!!</p>
+            </div>
+
+                   :  null}
+          
+      
+
+
+
           </form>
           
               <Link to={"/signup"}> </Link>

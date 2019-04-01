@@ -45,8 +45,8 @@ class App extends Component {
     this.service.loggedin()
       .then(e=>{
         console.log(e)
-        this.state.loggedInUser = true;
-        if(e) this.setState({ ...this.state, loggedInUser:true}, () => {})
+        // this.state.loggedInUser = true;
+        if(e) this.setState({ ...this.state, loggedInUser:e.username}, () => {})
       })
       .catch(() => {
         this.setState({ ...this.state, loggedInUser:null})

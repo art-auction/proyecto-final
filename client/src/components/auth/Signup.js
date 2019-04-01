@@ -33,7 +33,9 @@ class Signup extends Component {
         });
        
     })
-    .catch( error => console.log(error.response) )
+    .catch( error => {
+      this.setState({...this.state, err:"fail signup"});
+      console.log(error)} )
   }
   
   handleChange = (event) => {  
@@ -68,11 +70,19 @@ class Signup extends Component {
                 </select><br></br>
           
           <input type="submit" value="Registrarse" />
-        </form>
+        
   
+
+            {this.state.err ? 
+            <div className="signup-form">
+              <p>Error de registro!!!</p>
+            </div>
+
+                   :  null}
+            </form>
         
             <Link to={"/"}> </Link>
-        
+            
   
       </div>
       </div>
