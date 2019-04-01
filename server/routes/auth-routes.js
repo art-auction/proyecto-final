@@ -77,17 +77,18 @@ authRoutes.post('/login', (req, res, next) => {
             res.status(500).json({ message: 'Something went wrong authenticating user' });
             return;
         }
-        console.log(theUser)
+        
         if (!theUser) {
             // "failureDetails" contains the error messages
             // from our logic in "LocalStrategy" { message: '...' }.
             res.status(401).json(failureDetails);
             return;
         }
+        // if(!theUser.role) comsole.log("Este no es tu rol")
 
         // save user in session
         req.login(theUser, (err) => {
-            console.log(theUser)
+            console.log(theUser.role)
             if (err) {
                 res.status(500).json({ message: 'Session save went bad.' });
                 return;

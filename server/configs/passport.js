@@ -18,7 +18,11 @@ passport.deserializeUser((userIdFromSession, cb) => {
     });
 });
 
-passport.use(new LocalStrategy((username, password, next) => {
+passport.use(new LocalStrategy(
+    {//Esto hace que podamos usar req debajo para poder comprobar el role
+     passReqToCallback: true
+    }
+    ,(req, username, password, next) => {
     User.findOne({ username }, (err, foundUser) => {
         if (err) {
             next(err);
@@ -28,7 +32,12 @@ passport.use(new LocalStrategy((username, password, next) => {
             next(null, false, { message: 'Incorrect username.' });
             return;
         }
-        console.log(password)
+//Aquí se comprueba que el role del usuario en sesion sea el mismo que su rol en la base de datos
+        console.log(req.body)
+        if(req.body.role !== foundUser.role){
+            next(null, false, {meessage: "Incorrect role"});
+            return;
+        }
 
         if (!bcrypt.compareSync(password, foundUser.password)) {
             next(null, false, { message: 'Incorrect password.' });
