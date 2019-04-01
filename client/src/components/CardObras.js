@@ -28,7 +28,7 @@ return(
                     <div className="card card-obras">
                         <img className="card-img-top" src={artist.obras[0]} alt="Card image cap"></img>
                         <div className="card-body">
-                            <Button variant="outline-info">Subasta</Button>     
+                            <Button className="subasta-btn" variant="outline-info">Subasta</Button>     
                         </div>
                     </div>
                 
@@ -39,7 +39,7 @@ return(
                     <div className="card card-obras">
                         <img className="card-img-top" src={artist.obras[1]} alt="Card image cap"></img>
                         <div className="card-body">
-                            <Button variant="outline-info">Subasta</Button>
+                            <Button className="subasta-btn" variant="outline-info">Subasta</Button>
                         </div>
                     </div>
                 
@@ -50,7 +50,7 @@ return(
                     <div className="card card-obras">
                         <img className="card-img-top" src={artist.obras[2]} alt="Card image cap"></img>
                         <div className="card-body">
-                            <Button variant="outline-info">Subasta</Button>
+                            <Button className="subasta-btn" variant="outline-info">Subasta</Button>
                         </div>
                     </div>
                 </div>
