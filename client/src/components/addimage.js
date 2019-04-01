@@ -86,7 +86,7 @@ this.service.handleUpload(uploadImage)
 render() {
     return (
         <div>
-            <button onClick={this.openModal} className="btn newCoaster btn-primary">Nueva obra</button>
+            <button onClick={this.openModal} className="btn btn-add">Nueva obra</button>
             <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
 
                 <h2>Nueva obra</h2>

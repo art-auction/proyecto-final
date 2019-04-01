@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const Artist = require("../models/Artist");
-
+const User = require("../models/User")
 const bcryptSalt = 10;
 mongoose
   .connect('mongodb://localhost/art-auction', {useNewUrlParser: true})
@@ -16,6 +16,7 @@ mongoose
 let artists = [
     {
       username: "Carlos",
+      role:"Artist",
       password: bcrypt.hashSync("Carlos", bcrypt.genSaltSync(bcryptSalt)),
       profileImg:"https://pics.me.me/profile-rates-top-5-funniest-comments-win-funny-13854987.png",
       obras:["https://66.media.tumblr.com/3f8869cb473431a7749e69074bfb81fd/tumblr_npu9p17PWX1qfcut3o1_1280.jpg",
@@ -23,7 +24,8 @@ let artists = [
        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/REPIN_portret_REPIN.jpg/220px-REPIN_portret_REPIN.jpg"] 
     },
     {
-      username: "Dan",
+      username: "Dan",  
+      role:"Artist",
       password: bcrypt.hashSync("Dan", bcrypt.genSaltSync(bcryptSalt)),
       profileImg: "https://www.whatsappprofiledpimages.com/wp-content/uploads/2018/07/funny-profile-pic7-300x256.jpg",
       obras: ["https://cdn11.bigcommerce.com/s-vak6ug5w2j/images/stencil/500x659/products/22094/22491/Valentin_Serov_-_Portrait_of_Praskovia_Anatolievna_Mamontova_20x24_wunaoc__64870.1486486710.jpg?c=2&imbypass=on",
@@ -36,7 +38,7 @@ let artists = [
 
   Artist.deleteMany()
   .then(() => {
-    return Artist.create(artists)
+    return User.create(artists)
   })
   .then(artistsCreated => {
     console.log(`${artistsCreated.length} artists created with the following id:`);

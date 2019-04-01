@@ -75,7 +75,7 @@ authRoutes.post('/login', (req, res, next) => {
             res.status(500).json({ message: 'Something went wrong authenticating user' });
             return;
         }
-    
+        console.log(theUser)
         if (!theUser) {
             // "failureDetails" contains the error messages
             // from our logic in "LocalStrategy" { message: '...' }.

@@ -10,6 +10,8 @@ const userSchema = new Schema({
         enum: ["User", "Artist"],
         default: 'User'
     },
+    profileImg: String,  
+    obras:[String]
 
 }, {
     timestamps: {

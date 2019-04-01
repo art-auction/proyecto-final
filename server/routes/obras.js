@@ -19,11 +19,12 @@ router.get("/obras", (req, res) => {
     })
     
 
-// router.post("/postobra", (req, res)=>{  
-//  Artist.find()
-//    .then(data =>  res.json(dasta[0].obras.push("data")))
-//    .catch(err=>console.log(err))
-// })
+router.post("/postobra", (req, res)=>{  
+    console.log(req);
+ Artist.findByIdAndUpdate(req.user.id, {$push:{obras:req.body}})
+   .then(data =>  res.json(data[0].obras.push("data")))
+   .catch(err=>console.log(err))
+})
 
 
  
