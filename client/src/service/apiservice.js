@@ -12,21 +12,21 @@ class Apiservice {
 
     getObras = () => {
         return this.service.get("/obras")
-        .then(response => response.data)
+        .then(response => {
+            return response.data})
+        .catch((err) => console.log(err))
     }
     getObra = idObra =>{
     return this.service.get(`artist-profile/${idObra}`)
     .then(response => response.data)
     }
 
-    handleUpload = theFile =>{
-        return this.service.post("/upload", theFile)
-        .then(res=>res.data)
-        .catch(err=>console.log(err))
-    }
     postNewObra = newobra =>{
+        console.log("entra")
         return this.service.post("postobra", newobra)
-        .then(response =>response.data)
+        .then(response =>{
+            console.log(response)
+            return response.data})
         .catch(err=>console.log(err))
     }
 

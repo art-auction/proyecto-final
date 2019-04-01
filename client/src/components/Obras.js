@@ -18,6 +18,7 @@ constructor(){
 getArtists = ()=>{
    return this.serviceObras.getObras()
      .then(obras=>{
+         console.log(obras)
          this.setState({
              artists: obras
          })
@@ -32,14 +33,16 @@ componentDidMount(){
 
 
 render(){
+    console.log(this.state.artists)
   return(
 
  <div className="container container-yalose">
     <h1>Obras</h1>
     <hr></hr>
     
-<div className="row">
+<div className="row card-container">
 {
+    // if()
     this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
     }
 

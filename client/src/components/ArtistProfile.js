@@ -38,23 +38,20 @@ render(){
         <div className="container">
         <div className="row">
            
-            <div className="col-md-6">
-                {this.state.profile.obras ? <img src={this.state.profile.obras[0]} ></img>: null}
+            
+    {this.state.profile.obras ? this.state.profile.obras.map(arg=> {
+    return (
+        <div className="col-md-6">
+        <img src={arg}/>
+        </div>
+    ) 
+    }) : null}
                 
             </div>
-            <div className="col-md-6">
-    
-                {this.state.profile.obras ? <img src={this.state.profile.obras[1]} ></img>: null}
-
-            </div>
-            <div className="col-md-6">
-    
-                {this.state.profile.obras ? <img src={this.state.profile.obras[2]} ></img>: null}
-
-            </div>
+        
            
            
-            </div>
+           
            
             </div>
             </article>
