@@ -55,7 +55,7 @@ handleFileUpload = e =>{
 const uploadImage = new FormData()
 uploadImage.append("obra", e.target.files[0])
 
-this.service.handleUpload(uploadImage)
+this.service.postNewObra(uploadImage)
 .then(response=>{
     this.setState({
         obra:{
@@ -72,7 +72,7 @@ this.service.handleUpload(uploadImage)
  handleSubmit = e =>{
     e.preventDefault()
    this.service.postNewObra(this.state.obra)
-   .then(x=> this.props.addingImage()) 
+//    .then(x=> this.props.addingImage()) 
    this.setState({
     obra: []
    })
@@ -85,8 +85,13 @@ this.service.handleUpload(uploadImage)
 
 render() {
     return (
-        <div>
+        <div> 
+            {
+                this.user ?
+           
             <button onClick={this.openModal} className="btn btn-add">Nueva obra</button>
+            : null
+        }
             <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
 
                 <h2>Nueva obra</h2>
@@ -105,6 +110,7 @@ render() {
                 </form>
 
             </Modal>
+           
         </div>
     )
 }

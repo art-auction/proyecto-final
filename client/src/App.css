@@ -158,7 +158,7 @@ h1{
 }
 .inf-artist{
   font-family: "Chronicle Deck A", "Chronicle Deck B", Georgia;
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 80px
 }
 .inf-artist h1{
@@ -285,3 +285,15 @@ span a{
 }
 
 
+.card-container{
+margin-right: 60px
+}
+
+#artist-text p{
+color: rgb(94, 82, 82);
+
+}
+#artist-text{
+margin-top: 0px ;
+padding: 100px
+}

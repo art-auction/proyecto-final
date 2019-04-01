@@ -35,7 +35,7 @@ class Login extends Component {
           this.props.toggleLogin();
         });
 
-        // this.props.getUser(response)
+       //this.props.getUser(response)
         // window.location.assign("/signup")
         
       })
@@ -44,6 +44,7 @@ class Login extends Component {
     
   handleChange = (event) => {  
     const {name, value} = event.target;
+    console.log(value, "<----")
     this.setState({[name]: value});
   }
     
