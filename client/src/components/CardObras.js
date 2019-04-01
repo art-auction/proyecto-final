@@ -22,6 +22,7 @@ return(
                    
         </div>
         {/* <div className="col-md-6"> */}
+        
         <div className="row">
                     
                {artist.obras.map(arg=>{ 
@@ -42,7 +43,7 @@ return(
 
 )}
 </div>
-                        
+                
                         {/* </div>             */}
                     
                 

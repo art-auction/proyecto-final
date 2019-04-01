@@ -36,7 +36,7 @@ class NavbarComponent extends Component {
 
             return (
 
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar className="nav-bar" collapseOnSelect expand="lg" bg="dark" variant="dark">
 
                 <Navbar.Brand >Art & auction</Navbar.Brand>
                 
@@ -65,7 +65,7 @@ class NavbarComponent extends Component {
 
               return(
 
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar className="nav-bar"  collapseOnSelect expand="lg" bg="dark" variant="dark">
 
                 <Navbar.Brand >Art & auction</Navbar.Brand>
                 
