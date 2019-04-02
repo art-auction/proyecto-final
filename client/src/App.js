@@ -7,7 +7,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from "./components/Home"
 import Navbar from './components/Navbar'
 import Subasta from './components/Subasta'
-
+import WebsocketConnetction from  "./socketFront/websocket"
 
 
 import Obras from "./components/Obras"
@@ -18,6 +18,7 @@ class App extends Component {
     super(props)
     this.state = { loggedInUser: false, showLogin: false, showSignup:false};
     this.service = new authService()
+    this.socket = new WebsocketConnetction()
     this.ceckLoggedin();
 
   }
@@ -61,7 +62,9 @@ class App extends Component {
            
         })
 }
-
+sendMsg = () => {
+  this.socket.sendMessage("PEPE")
+}
 
   render() {
 
@@ -85,6 +88,7 @@ class App extends Component {
  
   
        </Switch>
+       <button onClick={this.sendMsg}>SEND</button>
       </div>
     );
   }
