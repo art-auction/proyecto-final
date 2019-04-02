@@ -8,7 +8,7 @@ class Signup extends Component {
     this.state = { 
      username: '',
      password: '', 
-     role: '', 
+     role: 'User', 
      Redirect:false,
     };
     this.service = new AuthService();

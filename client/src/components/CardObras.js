@@ -9,7 +9,7 @@ return(
 
     <main className="artists-obras">
 
-        <div className="col-lg-6 profile-img cont-obras inf-artist" id="artist-text">
+        <div className="col-lg-6  col-sm-12 profile-img cont-obras inf-artist" id="artist-text">
             
             {/*<img className="card-img-top rounded-circle" src={artist.profileImg} alt="Card image cap"></img>*/}
             
@@ -21,14 +21,14 @@ return(
                 
                    
         </div>
-        {/* <div className="col-md-6"> */}
+        <div className="col-md-6 col-sm-8"> 
         
         <div className="row">
                     
                {artist.obras.map(arg=>{ 
                   return (
                   
-                      <div class="col-md-6">
+                      <div class="col-md-6 col-sm-8">
                   
                   <div className="card card-obras">
              <img className="card-img-top" src={arg}/>
@@ -36,12 +36,13 @@ return(
                             <Button variant="outline-info">Subasta</Button>     
                         </div>
          </div>
-         </div>)
+        </div>)
 
 
 }
 
 )}
+</div>
 </div>
                 
                         {/* </div>             */}

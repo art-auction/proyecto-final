@@ -12,4 +12,12 @@ ReactDOM.render((
 ), document.getElementById('root'));
 
 
+
+document.querySelector('.toggle-menu').onclick = e => {
+    e.preventDefault();
+    document.querySelector('.menu').classList.toggle('abierto')
+}
+
+
+
 serviceWorker.unregister();

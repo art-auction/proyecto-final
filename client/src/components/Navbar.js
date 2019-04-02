@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import authService from '../components/auth/auth-service';
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import Button from 'react-bootstrap/Button'
+
+
+
 
 
 
@@ -35,66 +35,64 @@ class NavbarComponent extends Component {
         if (this.props.loggedInUser) {
 
             return (
+     
+        <main>  
+          <a  class="toggle-menu">&equiv;</a> 
 
-                <Navbar className="nav-bar" collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <div class="menu">               
 
-                <Navbar.Brand >Art & auction</Navbar.Brand>
+                    <h1 className="title">Art & auction</h1>
+
+                    <Link className="ref-obra" to='/obras'>Obras</Link> 
+
+                    <small>Bienvenido: {this.props.loggedInUser}</small><br></br>                            
                 
                 
-                  <Nav className="mr-auto">
-                    
-                    <Link className="link-nav obras-nav" to='/obras' href="#features">Obras</Link><br></br> 
-                    <small>Bienvenido: {this.props.loggedInUser}</small><br></br>                                  
-                    
-                  </Nav>
+              <ul>
+                  <li>
+                                                   
+                
+					            <a id="cerrar"className="link-nav" onClick={this.props.logoutUser} variant="outline-secondary" >Cerar Sesion</a>
+			          	</li>
+               
+              </ul>    
 
-                  
-                  
-                  <Nav>
-                  <Link to='/'><Button className="link-nav" onClick={this.props.logoutUser} variant="outline-secondary">Cerrar sesion</Button> </Link>             
-                    
-                  </Nav>
-              
-
-              </Navbar>
-
+            </div>
+      </main>
               
             )
 
             }else{
 
               return(
-
-                <Navbar className="nav-bar"  collapseOnSelect expand="lg" bg="dark" variant="dark">
-
-                <Navbar.Brand >Art & auction</Navbar.Brand>
+               
+      <main>                    
+        <a  class="toggle-menu">&equiv;</a>
+          <div class="menu">
+               
+               
+            <h1 className="title">Art & auction</h1>
                 
-
-                  <Nav className="mr-auto">
-
-                    <Link className="link-nav" to='/obras' href="#features">Obras</Link>                                   
-                    
-                  </Nav>
-
-                  <Nav>
-                  <Button className="link-nav" onClick ={this.props.toggleLogin}  variant="outline-secondary">Iniciar Sesión</Button>                
-                   
+                <Link className="ref-obra" to='/obras'>Obras</Link>
+                
+            <ul>
+                  
+                <li>
+                  <a  onClick ={this.props.toggleLogin} >Iniciar Sesión</a>                  
                           
                     
-                  </Nav>
-
-                  <Nav>
-                  <Button className="link-nav" onClick={this.props.toggleSignup} variant="outline-secondary">Registrate</Button>
+                </li> 
                   
-                                    
-                    
-                  </Nav>
                   
-                
+                <li>
+					         <a  onClick={this.props.toggleSignup} >Registrate</a>
+			          </li>
+               
+            </ul>           
 
-              </Navbar>
-
-
+          </div>
+        </main>
+              
 
 
               )
