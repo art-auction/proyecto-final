@@ -11,7 +11,7 @@ const userSchema = new Schema({
         default: 'User'
     },
     profileImg: String,  
-    obras:[String]
+    obras:[{type:Schema.Types.ObjectId, ref:"ObraMaestra"}]
 
 }, {
     timestamps: {

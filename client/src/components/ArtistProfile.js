@@ -12,7 +12,9 @@ constructor(props){
 
 getProfile(){
     return this.serviceProfile.getObra(this.props.match.params.id)
+   
     .then(response => this.setState({profile: response}))
+        //
 }
 
 componentDidMount(){
@@ -21,7 +23,7 @@ componentDidMount(){
 }
 render(){
 
-    console.log(this.state.profile.obras)
+    //console.log(this.state.profile.obras)
     return(
         <div className="container profile-container">
         
@@ -40,23 +42,20 @@ render(){
            
             
     {this.state.profile.obras ? this.state.profile.obras.map(arg=> {
+        {console.log(arg)}
     return (
+        
         <div className="col-md-6">
-        <img src={arg}/>
+        <img src={arg.image}/>
         </div>
     ) 
     }) : null}
                 
             </div>
-        
-           
-           
-           
-           
-            </div>
-            </article>
+          </div>
+       </article>
             
-            </div>
+    </div>
             
            
         </div>
