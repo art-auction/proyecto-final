@@ -9,11 +9,18 @@ constructor(){
     super()
 
     this.state = {
-        artists: []
+        artists: [],
+        obraIdSelected: undefined,
+
     }
     this.serviceObras = new Apiservice()
     
 }
+
+getObraId = (id) => {
+    this.props.getObraId(id)
+  }
+
 
 getArtists = ()=>{
    return this.serviceObras.getObras()
@@ -42,7 +49,7 @@ render(){
     
 <div className="row card-container">
  {
-  this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
+  this.state.artists.map(artist=><CardObras key={artist._id}  sendId={this.sendMsg} {...artist} getObraId={this.getObraId}/>)
     //.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
    }
 

@@ -49,10 +49,10 @@ class NavbarComponent extends Component {
                 
                 
               <ul>
-                  <li>
+                  <li id="cerrar">
                                                    
                 
-					            <a id="cerrar"className="link-nav" onClick={this.props.logoutUser} variant="outline-secondary" >Cerar Sesion</a>
+					            <a className="link-nav" onClick={this.props.logoutUser} variant="outline-secondary" >Cerar Sesion</a>
 			          	</li>
                
               </ul>    
@@ -75,7 +75,7 @@ class NavbarComponent extends Component {
                 
                 <Link className="ref-obra" to='/obras'>Obras</Link>
                 
-            <ul>
+            <ul className="sesion">
                   
                 <li>
                   <a  onClick ={this.props.toggleLogin} >Iniciar Sesión</a>                  
