@@ -3,7 +3,7 @@ import authService from './components/auth/auth-service';
 import './App.css';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import Home from "./components/Home"
 import Navbar from './components/Navbar'
 import Subasta from './components/Subasta'
@@ -61,11 +61,15 @@ class App extends Component {
             this.setState({ loggedInUser: null });
            
         })
+
+        
 }
+
+/////////////////Sockets
 sendMsg = () => {
   this.socket.sendMessage("PEPE")
 }
-
+///////////////////////////////
   render() {
 
     console.log(this.state.loggedInUser)
@@ -83,7 +87,7 @@ sendMsg = () => {
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>
   <Route exact path="/" component={Home}/>
-  {this.state.loggedInUser ? <Route exact path="/subasta" User={this.state.loggedInUser} component={Subasta}/>:null}
+  <Route exact path="/subasta" render={() => <Subasta  User={this.state.loggedInUser} ></Subasta>}/>
 
  
   

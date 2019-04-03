@@ -38,19 +38,21 @@ render(){
 
  <div className="container container-yalose">
     <h1>Obras</h1>
-    <hr></hr>
+        <hr></hr>
     
-<div className="row card-container">
- {
-  this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
-    //.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
-   }
-
-</div>
+    <div className="row card-container">
+        {
+                this.state.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
+            //.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
+        }
 
     </div>
+</div>
+
 
   )
+
+
 }
 
 }

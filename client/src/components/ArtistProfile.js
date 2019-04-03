@@ -42,7 +42,7 @@ render(){
            
             
     {this.state.profile.obras ? this.state.profile.obras.map(arg=> {
-        {console.log(arg)}
+        
     return (
         
         <div className="col-md-6">

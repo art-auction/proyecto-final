@@ -2,6 +2,9 @@ import React from "react"
 import { Link } from 'react-router-dom'
 //import ArtistProfile from "./ArtistProfile"
 import Button from 'react-bootstrap/Button'
+
+
+
 const CardObras = artist => {
 
     return (
@@ -29,7 +32,7 @@ const CardObras = artist => {
                             return (
                                 <div class="col-md-6">
                                     <div className="card card-obras">
-                                        <img className="card-img-top" src={obra.image} />
+                                        <img className="card-img-top" src={obra.image} alt="imagen -pintura" />
                                         <div className="card-body">
                                             <Button variant="outline-info">Subasta</Button>
                                         </div>

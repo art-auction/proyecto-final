@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+// import { threadId } from 'worker_threads';
 
-import { Redirect } from 'react-router-dom';
+
 
 
 class Subasta extends Component {
@@ -18,6 +19,20 @@ class Subasta extends Component {
 
     render(){
         console.log(this.props)
+        if(!this.props.User){
+            return(
+                <div>
+                    <h1 id="title-subasta">NECESITAS INICIAR SESION INUTIL</h1>
+                </div>
+            )
+        } else {
+            console.log("entra")
+            return (
+                <div className="subasta-form">
+                    <p>Bienvenidos a la subasta del siglo!!!</p>
+                </div>
+            )
+        }
         // return(
         //     <div>
         //         <p>Pepe</p>
@@ -29,11 +44,7 @@ class Subasta extends Component {
         //     </div>
         // )} else return (<Redirect to= '/' />)
       
-            return (
-                    <div className="subasta-form">
-                        <p>Bienvenidos a la subasta del siglo!!!</p>
-                    </div>
-                )
+          
         
 
              
