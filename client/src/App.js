@@ -16,12 +16,17 @@ class App extends Component {
 
   constructor(props){
     super(props)
-    this.state = { loggedInUser: false, showLogin: false, showSignup:false};
+    this.state = { loggedInUser: false, showLogin: false, showSignup:false, obraIdSelected: undefined};
     this.service = new authService()
     this.socket = new WebsocketConnetction()
     this.ceckLoggedin();
 
   }
+
+  getObraId = (id) => {
+    this.setState({...this.state, obraIdSelected: id})
+  }
+
 
   getTheUser= (userObj) => {
     this.setState({
@@ -64,15 +69,14 @@ class App extends Component {
 
         
 }
+ sendMsg = () => {
+   this.socket.sendMessage(this.state.obraIdSelected)
+ }
 
-/////////////////Sockets
-sendMsg = () => {
-  this.socket.sendMessage("PEPE")
-}
-///////////////////////////////
+
   render() {
 
-    console.log(this.state.loggedInUser)
+    
     return (
       <div className="App">
       <Navbar toggleLogin={this.toggleLogin} toggleSignup={this.toggleSignup} logoutUser={this.logoutUser} loggedInUser={this.state.loggedInUser}/>
@@ -83,7 +87,7 @@ sendMsg = () => {
  
         <Switch>
   <Route exact path="/artist-profile/:id" component={ArtistProfile}/>
-  <Route exact path="/obras" component={Obras}/>
+  <Route exact path="/obras" render={() => <Obras sendId={this.sendMsg} getObraId={this.getObraId}></Obras>}/>
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>
   <Route exact path="/" component={Home}/>
@@ -92,10 +96,10 @@ sendMsg = () => {
  
   
        </Switch>
-       <button onClick={this.sendMsg}>SEND</button>
+     
+       <button onClick={this.socket.sendMessage(this.state.obraIdSelected)}>SEND</button>
       </div>
     );
   }
 }
-
 export default App;
