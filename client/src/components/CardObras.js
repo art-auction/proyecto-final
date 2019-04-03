@@ -19,7 +19,8 @@ const CardObras = artist => {
 
                     <h5 className="card-title">{artist.username}</h5>
                     <p>El señor {artist.username} es una artista muy respetado en su país.
-         Su estilo realista está influenciado por la obra de grandes maestros rusos del gupo "Los Itinerantes" y de otrso grandes maestros del barroco</p>
+                      Su estilo realista está influenciado por la obra de grandes maestros rusos
+                     del gupo "Los Itinerantes" y de otrso grandes maestros del barroco</p>
 
                     <Link className="btn btn-sm btn-outline-dark"  to={`/artist-profile/${artist._id}`}>Perfil de artista</Link>
                   
@@ -35,14 +36,15 @@ const CardObras = artist => {
                                     <div className="card card-obras">
                                         <img className="card-img-top" src={obra.image} alt="imagen -pintura" />
                                         <div className="card-body">
-                                            <Button variant="outline-info" onClick={() => artist.getObraId(obra._id)}>Subasta</Button>
+                                        <Link to={`/subasta/${obra._id}`}> <Button variant="outline-info">Subasta</Button></Link>
+
+                                           {
+                                               // <Button variant="outline-info" onClick={() => artist.getObraId(obra._id)}>Subasta</Button>
+                                           }
                                         </div>
                                     </div>
                                 </div>)
                         })}
-
-
-
 
                     </div>
                 </div>

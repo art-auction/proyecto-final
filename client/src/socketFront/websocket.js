@@ -16,6 +16,7 @@ export default class WebsocketConnetction{
      )
         })
     }
+    //render(data)
   sendMessage(text){
       console.log(`Enviando mensaje: ${text}`)
       this.socket.emit("new_message", {text}  )
