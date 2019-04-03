@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import socketIOClient from "socket.io-client"
 import Obras from "./Obras"
 import Apiservice from "../service/apiservice"
-import WebsocketConnetction from  "../socketFront/websocket"
+//import WebsocketConnetction from  "../socketFront/websocket"
 // import { threadId } from 'worker_threads';
 
 
@@ -16,18 +17,29 @@ class Subasta extends Component {
         this.state = {
             loggedInUser: this.props.User,
             obraIdSelected: undefined,
-            obra: {}
+            obra: {},
+            endpoint: "http://localhost:5000"
+
            
 
         }
-        this.socket = new WebsocketConnetction() 
+        this.socket = socketIOClient(this.state.endpoint);
         this.serviceSubasta = new Apiservice
+        this.socket.on("new_message",(obj)=>{
+            console.log(obj)
+        })
+        this.socket.on("mensaje", (data) =>{
+            console.log(data)
+         })
+        
     }
     getSubastaObra(){
        return this.serviceSubasta.getObraSubasta(this.props.match.params.id)
        .then(response => this.setState({...this.state, obra: response}))
     }
     componentDidMount(){
+        const { endpoint } = this.state
+        
         this.getSubastaObra()
     
     }
@@ -36,7 +48,9 @@ class Subasta extends Component {
         this.setState({...this.state, obraIdSelected: id})
       }
       sendMsg = () => {
-        this.socket.sendMessage(this.state.obra.title)
+        this.socket.emit("new_message",{title:this.state.obra.title, user:this.props.User})
+
+        console.log("promise")
             //this.state.obraIdSelected)
       }
 
@@ -51,19 +65,31 @@ class Subasta extends Component {
         } else {
             console.log("entra")
             return (
-            <main className="container">
-            
-            <div className="col-md-6">
+            <main>
             <div className="row">
+            <div className="col-md-6">
+            
+            <div>
                 <div className="subasta-form">
                 <h2>{this.state.obra.title}</h2>
                 <img className="subasta-img" src={this.state.obra.image}></img>
                 <strong>{this.state.obra.año}</strong>
                 <strong>{this.state.obra.author}</strong>
-                 <button onClick={this.sendMsg}>SEND</button>
+                </div>
+               
+                </div>
+                
+               
+                
                 </div>
                 </div>
-                </div>
+               
+                <form>
+                <label for="puja">Pujas</label>
+                 <input className="input-puja" name="puja" type="text" placeholder="introduzca su puja"/>
+                 
+                 </form><button onClick={this.sendMsg} >"SEND"</button>
+                
                 </main>
             )
         }
