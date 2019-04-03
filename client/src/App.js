@@ -91,7 +91,7 @@ class App extends Component {
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>
   <Route exact path="/" component={Home}/>
-  <Route exact path="/subasta" render={() => <Subasta  User={this.state.loggedInUser} ></Subasta>}/>
+  <Route exact path="/subasta/:id" render={() => <Subasta  User={this.state.loggedInUser} ></Subasta>}/>
 
  
   

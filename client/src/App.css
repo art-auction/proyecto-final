@@ -402,6 +402,7 @@ width: 70%
   float: left;
   font-size: 2.8em;
   color:rgb(226, 98, 51);
+  font-weight: lighter;
   
 }
 .ref-obra{
@@ -409,13 +410,15 @@ width: 70%
   margin-top: 10px;
   margin-left: 80px;
   font-size: 1.7em;
+  font-weight: lighter;
   
 
 }
 a{
-  font-size: 1.7em;
+  font-size: 1.6em;
   margin-right: 25px;   
   color: white;
+  font-weight: lighter;
 }
 
 a:hover { 

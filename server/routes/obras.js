@@ -35,6 +35,8 @@ router.get("/obras", (req, res) =>{
     })
 })
    
+
+
    
     router.get("/artist-profile/:id", (req, res) => {
         User.findById(req.params.id)
@@ -51,7 +53,10 @@ router.post("/postobra",uploader.single("obra"), (req, res)=>{
 })
 
 
- 
+router.get("/subasta/:id", (req, res)=>{
+    Obras.findById()
+    .then(data => console.log(res.data))
+})
 
 
 

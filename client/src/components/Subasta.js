@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { threadId } from 'worker_threads';
+
 
 
 
@@ -33,18 +33,7 @@ class Subasta extends Component {
                 </div>
             )
         }
-        // return(
-        //     <div>
-        //         <p>Pepe</p>
-        //     </div>
-        // )
-        // if(this.props.User == false) {return (
-        //     <div className="subasta-form">
-        //         <p>Bienvenidos a la subasta del siglo!!!</p>
-        //     </div>
-        // )} else return (<Redirect to= '/' />)
-      
-          
+    
         
 
              
