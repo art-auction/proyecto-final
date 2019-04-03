@@ -44,7 +44,11 @@ router.get("/obras", (req, res) =>{
         .then(data=>res.json(data))
         .catch(err=>console.log(err))
     })
-    
+    router.get("/subasta/:id", (req, res)=>{
+        ObraMaestra.findById(req.params.id)
+       .then(data =>res.json(data))
+       .catch(err=>console.log(err))   
+    })
 
 router.post("/postobra",uploader.single("obra"), (req, res)=>{  
  User.findByIdAndUpdate(req.user.id, {$push:{obras:req.file.secure_url}})

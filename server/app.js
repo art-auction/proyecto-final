@@ -72,7 +72,6 @@ app.use(require('node-sass-middleware')({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 
@@ -93,6 +92,9 @@ app.use("/api", obras);
 
 app.use('/api', require('./routes/file-upload-routes'));
 
-
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+   res.sendFile(__dirname + "/public/index.html");
+  });
 
 module.exports = app;

@@ -20,6 +20,10 @@ class Apiservice {
     return this.service.get(`artist-profile/${idObra}`)
     .then(response => response.data)
     }
+    getObraSubasta = idObraSubasta=>{
+        return this.service.get(`/subasta/${idObraSubasta}`)
+        .then(response => response.data)
+    }
 
     postNewObra = newobra =>{
         console.log("entra")

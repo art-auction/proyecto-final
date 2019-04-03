@@ -50,7 +50,7 @@ class App extends Component {
   ceckLoggedin = () => {
     this.service.loggedin()
       .then(e=>{
-        console.log(e)
+       // console.log(e)
         // this.state.loggedInUser = true;
         if(e) this.setState({ ...this.state, loggedInUser:e.username}, () => {})
       })
@@ -91,13 +91,12 @@ class App extends Component {
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>
   <Route exact path="/" component={Home}/>
-  <Route exact path="/subasta/:id" render={() => <Subasta  User={this.state.loggedInUser} ></Subasta>}/>
+  <Route exact path="/subasta/:id" render={(match) => <Subasta {...match}  User={this.state.loggedInUser} getObraId={this.getObraId} ></Subasta>}/>
 
- 
-  
        </Switch>
      
-       <button onClick={this.socket.sendMessage(this.state.obraIdSelected)}>SEND</button>
+
+    
       </div>
     );
   }
