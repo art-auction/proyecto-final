@@ -8,7 +8,9 @@ module.exports = (io) =>{
       socket.on("new_message", (obj)=>{
           console.log("Nuevo mensaje del cliente")
           console.log(obj)
-          socket.broadcast.emit("mensaje", obj)
+
+          //socket.broadcast.emit("new_message", obj)
+          io.emit("new_message", obj)
       })
 
 
