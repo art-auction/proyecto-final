@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import socketIOClient from "socket.io-client"
 import Obras from "./Obras"
 import Apiservice from "../service/apiservice"
+import { Redirect } from 'react-router-dom'
 //import WebsocketConnetction from  "../socketFront/websocket"
 // import { threadId } from 'worker_threads';
 
@@ -71,7 +72,7 @@ class Subasta extends Component {
         if(!this.props.User){
             return(
                 <div>
-                    <h1 id="title-subasta">NECESITAS INICIAR SESION INUTIL</h1>
+                    <Redirect to="/"></Redirect>
                 </div>
             )
         } else {
@@ -79,39 +80,40 @@ class Subasta extends Component {
             return (
             
             <div className="row">
-            <div className="col-md-6 col-sm-8">
-            
-        <div>
-            <div className="subasta-form">
-                <h2>{this.state.obra.title}</h2>
-                <img className="subasta-img" src={this.state.obra.image}></img><br></br>
-                <strong>{this.state.obra.año}</strong><br></br>
+                <div className="col-md-6 col-sm-8">
                 
-            </div>
-               
-        </div>
-                
-               
-                
-                
-            
-               
-                 
-            <div className="puja-tab">
+                    <div>
+                        <div className="subasta-form">
+                            <h2>{this.state.obra.title}</h2>
+                            <img className="subasta-img" src={this.state.obra.image}></img><br></br>
+                            <strong>{this.state.obra.año}</strong><br></br>
+                            
+                        </div>
+                         
+                    </div>     
+
+                            
+                            
+                    
+                </div> 
+            <div className="col-6">
+           
                     <form className="form-puja">
+                        
+                                <input className="input-puja" name="puja" type="text" placeholder="introduzca su puja" onChange = {(e) => this.handleState(e)} />                              
+                        
+                            </form>
+                           
+                                <button nameClass="btn-send" onClick={this.sendMsg} >"SEND"</button>
+                           
                 
-                        <input className="input-puja" name="puja" type="text" placeholder="introduzca su puja" onChange = {(e) => this.handleState(e)} />
-                 
-                    </form><button onClick={this.sendMsg} >"SEND"</button>
-             </div> 
-             </div> 
-             </div>      
+                    </div>
+                    </div>
+                  
                 
              
             )
         }
-    
-        
 
              
     }

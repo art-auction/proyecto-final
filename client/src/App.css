@@ -43,39 +43,44 @@ element.style {
 .Login {
   height: 100%;
   width: 50rem;
-  background: rgb(192, 103, 62);
+  background: rgb(24, 24, 23);
   position: absolute;
   right: 0;
   transition: all .5s ease-in-out;
+  font-size: 1.5em;
 }
 
 .Login.show {
   right: 0;
   z-index: 999;
+  
 }
 
 .Login.hide {
   right: -50rem;
   z-index: 999;
+  
 }
 
 .Signup {
   height: 100%;
   width: 50rem;
-  background: rgb(192, 103, 62);
+  background: rgb(24, 24, 23);
   position: absolute;
   right: 0;
   transition: all .5s ease-in-out;
+  font-size: 1.5em;
 }
 
 .Signup.show {
   right: 0;
   z-index: 999;
+  
 }
 
 .Signup.hide {
   right: -50rem;
-  z-index: 999;
+ z-index: 999;
 }
 
 .holaDan {
@@ -113,9 +118,11 @@ element.style {
 }
 .login-form{
   margin-top: 40%;
+  color: silver;
 }
 .form-signup{
   margin-top:40%;
+  color:silver;
 }
 
 
@@ -177,7 +184,7 @@ background-size: contain
 
 
 
-  .Login, .Signup {
+.Login, .Signup {
     position: fixed;
   }
 hr{
@@ -271,13 +278,13 @@ input[type="submit"]{
   border-radius: 8px;
   padding-bottom: 0;
   height: 60px;
-  background: #551705;
+  background: #181717;
   color: white;
   cursor: pointer;
   transition: all 600ms ease-in-out;
 }
 input[type="submit"]:hover{
-  background: #551705;
+  background: #181717;
 }
 span a{
   color: rgba(255,255,255, 0.8);
@@ -413,7 +420,7 @@ ul {
   text-align: center;
   float: left;
   font-size: 2.4em;
-  color:rgb(199, 109, 77);
+  color: silver;
   font-weight: lighter;
   font-family: sans-serif
   
@@ -452,11 +459,17 @@ a:hover {
 
 }
 .subasta-img{
-  width: 80%;
+  width: 60%;
   height: 50%;
 }
 .input-puja{
-  border: solid rebeccapurple
+  border: black 3px solid;
+  overflow: auto;
+  width: 400px;
+  height: 500px;
+  margin-top: 250px;
+  border-radius: 50px;
+  
 }
 .cerrar li a{
 display: block;
@@ -485,4 +498,8 @@ font-family: sans-serif;
   height: 100vh;
   min-width: 100vw;
   min-height: 100vh;
-  z-index: -1;}
+  z-index: -1;
+}
+.btn-send{
+  padding-top: 800px;
+}
