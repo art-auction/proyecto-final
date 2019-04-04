@@ -8,7 +8,7 @@ export default class WebsocketConnetction{
         //     pujas: []
         // }
         
-        this.socket = io(process.env.REACT_APP_API_URL)
+        this.socket = io(process.env.REACT_APP_API_URL_SOCKET)
         this.socket.on("mensaje", (data) =>{
             //this.setState({})
 
