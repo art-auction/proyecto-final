@@ -522,7 +522,9 @@ font-family: sans-serif;
   
   overflow-y: scroll;
   border: dashed;
-  max-height: 15px;
+  width: 300px;
+  max-height: 300px;
+  margin-top: 80px
 
 }
 /*.container{

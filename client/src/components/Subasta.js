@@ -146,36 +146,38 @@ class Subasta extends Component {
                 
             
                
-        <div className="col-md-6 col-sm-8">
-        <h2>{this.state.winner}</h2>
+        <div className="col-md-6">
+       
         
         <form className="form-puja" onSubmit={this.handleFormSubmit}>
                 
-                        <input className="input-puja" value={this.state.mensaje} name="mensaje" type="text" onChange = {(e)=>this.handleState(e)} />
-                 <input type="submit" onClick={this.sendMsg}/>
-                    </form>
-                    <strong>{this.state.mensaje} </strong><br></br>
-                    </div>      
-                    <div className="pujas-tab">     
+                       
+                        <div className="put-box">
+                      
            {
                this.state.puja.map(apuesta => {
                console.log(apuesta)
                return(
                 
-                   
+                   <span>
                   
                    
-                       <strong>Appuesta:{apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong>
+                       <strong>Appuesta: {apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
                        
                   
-                  
+                       </span>
                  
                )
            })}
-             </div>
-                    
+            </div> 
+            <input className="input-puja" value={this.state.mensaje} name="mensaje" type="text" onChange = {(e)=>this.handleState(e)} />
+                 <input type="submit" onClick={this.sendMsg}/>
+                    </form>
+                    <strong>{this.state.mensaje} </strong><br></br>
+             </div>       
                     {//<button onClick={this.sendMsg} >"SEND"</button>
                     }
+                    
              
 
                     <button onClick={this.startSubasta}>GO!!!!!</button>
