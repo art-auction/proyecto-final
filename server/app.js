@@ -20,7 +20,7 @@ require('./configs/passport');
 
 
 mongoose
-  .connect('mongodb://localhost/art-auction', {useNewUrlParser: true})
+  .connect(process.env.DBURL, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -83,8 +83,6 @@ app.locals.title = 'Estamos en Back, Estamos en Back, Estamos en Back';
 
 // Routings
 
-const index = require('./routes/index');
-app.use('/', index);
 
 const authRoutes = require('./routes/auth-routes')
 app.use('/api', authRoutes)

@@ -7,7 +7,7 @@ const User = require("../models/User")
 const ObraMaestra = require("../models/ObraMaestra")
 //const Album = require("../models/Album")
 const uploader = require('../configs/cloudinary-setup');
-
+const Puja = require('../models/Puja');
 
 // router.get("/obras", (req, res) => {
 //     User.find({role:"Artist"})
@@ -25,6 +25,7 @@ router.get("/obras", (req, res) =>{
     //         res.status(200).json(obrasMaestras)
     //     })
     // })
+    console.log("entra")
     User.find({role:"Artist"})
     .populate("obras")
     .then(users => {
@@ -65,6 +66,14 @@ router.post("/postobra",uploader.single("obra"), (req, res)=>{
         .catch(err=>console.log(err))
 })
 
+router.post("/postpuja/:id", (req, res)=>{
+    const {sms, user} = req.body;
+    Puja.findOneAndUpdate({obra:req.params.id}, {$push:{pujaColection:{user, money:sms}}}, {new:true})
+    .then(puja => {
+        console.log(puja)
+        res.json(puja)
+    })
+})
 
 router.get("/subasta/:id", (req, res)=>{
     Obras.findById()

@@ -1,5 +1,5 @@
 import React from "react"
-import video from '../Video/A0453_1507_H3_807_1165_Videvo.mp4'
+
 
 
 

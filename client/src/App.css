@@ -463,13 +463,10 @@ a:hover {
   height: 50%;
 }
 .input-puja{
-  border: black 3px solid;
-  overflow: auto;
-  width: 400px;
-  height: 500px;
-  margin-top: 250px;
-  border-radius: 50px;
-  
+  border: solid rebeccapurple;
+  width: 300px;
+  height: 50px;
+  color: black
 }
 .cerrar li a{
 display: block;

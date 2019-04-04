@@ -5,7 +5,7 @@ class Apiservice {
     constructor(){
        
         this.service = axios.create({
-            baseURL:"http://localhost:5000/api",
+            baseURL:process.env.REACT_APP_API_URL,
             withCredentials:true
         })
     }
@@ -32,6 +32,15 @@ class Apiservice {
             console.log(response)
             return response.data})
         .catch(err=>console.log(err))
+    }
+    postPujas = (newpuja, idpuja) =>{
+        console.log(newpuja)
+        return this.service.post(`postpuja/${idpuja}`, newpuja)
+        .then(response =>{
+            console.log(response)
+            return response.data})
+            .catch(err =>console.log(err))
+ 
     }
 
     
