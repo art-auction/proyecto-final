@@ -33,6 +33,14 @@ class Apiservice {
             return response.data})
         .catch(err=>console.log(err))
     }
+    postPujas = newpuja =>{
+        return this.service.post("postpuja", newpuja)
+        .then(response =>{
+            console.log(response)
+            return response.data})
+            .catch(err =>console.log(err))
+ 
+    }
 
     
 

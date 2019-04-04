@@ -66,6 +66,13 @@ router.post("/postobra",uploader.single("obra"), (req, res)=>{
         .catch(err=>console.log(err))
 })
 
+router.post("/postpuja/:id", (req, res)=>{
+    const {user, money} = req.body;
+    Subasta.findByIdAndUpdate(req.params.id, {$push:{pujaColection:{user, money}}}, {new:true})
+    then(puja => {
+        res.json(puja)
+    })
+})
 
 router.get("/subasta/:id", (req, res)=>{
     Obras.findById()

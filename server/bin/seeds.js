@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 // const Artist = require("../models/Artist");
 const User = require("../models/User")
 const Obra = require("../models/ObraMaestra");
+const Puja = require('../models/Puja');
 const bcryptSalt = 10;
 mongoose
   .connect(process.env.DBURL, {useNewUrlParser: true})
@@ -121,6 +122,10 @@ let artists = [
       return Promise.all(users.map(user => {
         let idObras = obras.filter(obra => obra.author.toString() == user._id.toString()).map(obra => obra._id)
         return user.update({obras:idObras})
+      }), obras.map(obra => {
+        const newPuja = new Puja({obra: obra._id})
+        return newPuja.save()
+        .then(puja => puja._id)
       }))
     })
   })
