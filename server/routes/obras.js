@@ -25,6 +25,7 @@ router.get("/obras", (req, res) =>{
     //         res.status(200).json(obrasMaestras)
     //     })
     // })
+    console.log("entra")
     User.find({role:"Artist"})
     .populate("obras")
     .then(users => {

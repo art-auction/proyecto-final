@@ -7,7 +7,7 @@ const User = require("../models/User")
 const Obra = require("../models/ObraMaestra");
 const bcryptSalt = 10;
 mongoose
-  .connect('mongodb://localhost/art-auction', {useNewUrlParser: true})
+  .connect(process.env.DBURL, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
