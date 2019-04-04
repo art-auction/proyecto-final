@@ -18,7 +18,7 @@ class Subasta extends Component {
             loggedInUser: this.props.User,
             obraIdSelected: undefined,
             obra: {},
-            endpoint: "http://localhost:5000"
+            endpoint: process.env.REACT_APP_API_URL
 
            
 
