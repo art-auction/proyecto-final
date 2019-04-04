@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client"
 import Obras from "./Obras"
 import Apiservice from "../service/apiservice"
 import { Redirect } from 'react-router-dom'
-import SalaDePujas from "../components/SalaDePujas"
+
 //import WebsocketConnetction from  "../socketFront/websocket"
 // import { threadId } from 'worker_threads';
 
