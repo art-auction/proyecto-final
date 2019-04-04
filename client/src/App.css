@@ -470,7 +470,7 @@ a:hover {
 }
 .input-puja{
   border: solid rebeccapurple;
-  width: 300px;
+  width: 200px;
   height: 50px;
   color: black
 }
@@ -511,3 +511,21 @@ font-family: sans-serif;
   margin-top: 10px;
   color:white;
 }
+
+
+.pujas-tab{
+  height: 60px;
+  
+}
+
+.put-box{
+  
+  overflow-y: scroll;
+  border: dashed;
+  max-height: 15px;
+
+}
+/*.container{
+  overflow-y: scroll;
+  max-height: 15px;
+}*/

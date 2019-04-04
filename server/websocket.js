@@ -1,7 +1,7 @@
 
 module.exports = (io) =>{
     console.log("Estamos listos, SIIIIIIIIIII")
-
+   // const arr=[]
     io.on("connection", socket =>{
         console.log("UN USUARIO CONCETADO")
       socket.emit("mensaje", {text: "Conectado al servidor"})
@@ -19,7 +19,11 @@ module.exports = (io) =>{
           //socket.broadcast.emit("new_message", obj)
           io.emit("winner", obj)
       })
-
+    //   socket.on("Puja",()=>{
+    //       setTimeout(()=>{
+    //           io.emit("Puja",{title:"fin de la puja", arr: obj})
+    //       },3000)
+    //   })
 
 
     })

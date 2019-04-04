@@ -26,7 +26,8 @@ class Subasta extends Component {
             endpoint: process.env.REACT_APP_API_URL_SOCKET,
             mensaje: "",
             apuestas:[],
-            puja: []
+            puja: [],
+            winner: ""
 
            
 
@@ -99,6 +100,7 @@ class Subasta extends Component {
         this.props.setTimeout(() => {
             const max = Math.max(...this.state.puja.map(puja => puja.money));
             this.socket.emit("winner",{user:this.state.puja.find(pija => pija.money == max).user})
+           // this.setState({...this.state.winner, winner:this.state.winner.max.user})
             // console.log(this.state.puja.find(pija => pija.money == max).user)
         }, 8000)
      }
@@ -145,27 +147,36 @@ class Subasta extends Component {
             
                
         <div className="col-md-6 col-sm-8">
-           {
-               this.state.puja.map(apuesta => {
-               console.log(apuesta)
-               return(
-                   
-                   <div>
-                       <strong>{apuesta.user}</strong>
-                       <p>{apuesta.money}</p>
-                   </div>
-               )
-           })}
-            
-                    <form className="form-puja" onSubmit={this.handleFormSubmit}>
+        <h2>{this.state.winner}</h2>
+        
+        <form className="form-puja" onSubmit={this.handleFormSubmit}>
                 
                         <input className="input-puja" value={this.state.mensaje} name="mensaje" type="text" onChange = {(e)=>this.handleState(e)} />
                  <input type="submit" onClick={this.sendMsg}/>
                     </form>
                     <strong>{this.state.mensaje} </strong><br></br>
+                    </div>      
+                    <div className="pujas-tab">     
+           {
+               this.state.puja.map(apuesta => {
+               console.log(apuesta)
+               return(
+                
+                   
+                  
+                   
+                       <strong>Appuesta:{apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong>
+                       
+                  
+                  
+                 
+               )
+           })}
+             </div>
+                    
                     {//<button onClick={this.sendMsg} >"SEND"</button>
                     }
-             </div> 
+             
 
                     <button onClick={this.startSubasta}>GO!!!!!</button>
              </div> 
