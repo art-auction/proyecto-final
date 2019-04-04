@@ -20,6 +20,7 @@ class App extends Component {
     this.service = new authService()
     this.socket = new WebsocketConnetction()
     this.ceckLoggedin();
+    
 
   }
 
@@ -101,4 +102,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default App

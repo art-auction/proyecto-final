@@ -75,9 +75,17 @@ router.post("/postpuja/:id", (req, res)=>{
     })
 })
 
-router.get("/subasta/:id", (req, res)=>{
-    Obras.findById()
-    .then(data => console.log(res.data))
+router.get("/getpuja/:id", (req, res)=>{
+    console.log(req.params)
+    Puja.findOne({obra:req.params.id})
+    .then(puja =>{
+        console.log(puja);
+        res.json(puja)
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 })
 
 

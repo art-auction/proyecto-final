@@ -12,6 +12,13 @@ module.exports = (io) =>{
           //socket.broadcast.emit("new_message", obj)
           io.emit("new_message", obj)
       })
+      socket.on("winner", (obj)=>{
+          console.log("No toques na'")
+          console.log(obj)
+
+          //socket.broadcast.emit("new_message", obj)
+          io.emit("winner", obj)
+      })
 
 
 

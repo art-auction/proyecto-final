@@ -4,6 +4,9 @@ import Obras from "./Obras"
 import Apiservice from "../service/apiservice"
 import { Redirect } from 'react-router-dom'
 import SalaDePujas from "../components/SalaDePujas"
+import ReactTimeout from 'react-timeout'
+import { isNumber } from 'util';
+
 //import WebsocketConnetction from  "../socketFront/websocket"
 // import { threadId } from 'worker_threads';
 
@@ -23,6 +26,7 @@ class Subasta extends Component {
             endpoint: process.env.REACT_APP_API_URL_SOCKET,
             mensaje: "",
             apuestas:[],
+            puja: []
 
            
 
@@ -40,7 +44,12 @@ class Subasta extends Component {
     }
     getSubastaObra(){
        return this.serviceSubasta.getObraSubasta(this.props.match.params.id)
-       .then(response => this.setState({...this.state, obra: response}))
+       .then(obra => {
+           this.serviceSubasta.getPuja(this.props.match.params.id)
+           .then(puja => {
+
+               this.setState({...this.state, obra, puja:puja.pujaColection})})
+           })
     }
     componentDidMount(){
         const { endpoint } = this.state
@@ -49,12 +58,17 @@ class Subasta extends Component {
 
         this.socket.on("new_message", msg => {
             console.log(msg)
-            const _apuestas = [...this.state.apuestas];
+            const _apuestas = [...this.state.puja];
+            console.log(_apuestas)
             _apuestas.push({user:msg.user, money:msg.sms});
+            console.log(_apuestas)
             this.setState({
                 ...this.state,
-                apuestas: _apuestas
+                puja: _apuestas
             })
+        })
+        this.socket.on("winner", msg => {
+            console.log(msg.user)
         })
     
     }
@@ -74,13 +88,20 @@ class Subasta extends Component {
         const apuestas = this.state.apuestas
      this.servicePuja.postPujas({sms: this.state.mensaje, user:this.props.User}, this.props.match.params.id)
      .then(response=>{
-         this.setState({apuestas:[]})
+        //  this.setState({apuestas:response.pujaColection})
          
      })
      .catch(err=>console.log(err))
 
      }
       
+     startSubasta = () => {
+        this.props.setTimeout(() => {
+            const max = Math.max(...this.state.puja.map(puja => puja.money));
+            this.socket.emit("winner",{user:this.state.puja.find(pija => pija.money == max).user})
+            // console.log(this.state.puja.find(pija => pija.money == max).user)
+        }, 1000)
+     }
 
       handleState = e => {
         const { name, value } = e.target;
@@ -125,7 +146,7 @@ class Subasta extends Component {
                
         <div className="col-md-6 col-sm-8">
            {
-               this.state.apuestas.map(apuesta => {
+               this.state.puja.map(apuesta => {
                console.log(apuesta)
                return(
                    
@@ -145,6 +166,8 @@ class Subasta extends Component {
                     {//<button onClick={this.sendMsg} >"SEND"</button>
                     }
              </div> 
+
+                    <button onClick={this.startSubasta}>GO!!!!!</button>
              </div> 
          
                
@@ -156,4 +179,4 @@ class Subasta extends Component {
     }
 }   
 
-export default Subasta
+export default ReactTimeout(Subasta)
