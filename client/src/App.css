@@ -435,8 +435,18 @@ a:hover {
 
 }
 .subasta-img{
-  width:65%
+  width: 80%;
+  height: 50%;
 }
-.input-puja{
-  border: solid rebeccapurple
+
+
+
+.puja-tab{
+  
+  margin-right: 80px;
+ 
 }
+
+
+
+

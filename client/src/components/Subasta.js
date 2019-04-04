@@ -54,6 +54,18 @@ class Subasta extends Component {
             //this.state.obraIdSelected)
       }
 
+      handleState = e => {
+        const { name, value } = e.target;
+ 
+        this.setState({
+            message: {
+                ...this.state.coaster, [name]: value
+            }
+        })
+    }
+       
+
+
     render(){
         console.log(this.state.obra)
         if(!this.props.User){
@@ -65,32 +77,37 @@ class Subasta extends Component {
         } else {
             console.log("entra")
             return (
-            <main>
-            <div className="row">
-            <div className="col-md-6">
             
-            <div>
-                <div className="subasta-form">
+            <div className="row">
+            <div className="col-md-6 col-sm-8">
+            
+        <div>
+            <div className="subasta-form">
                 <h2>{this.state.obra.title}</h2>
-                <img className="subasta-img" src={this.state.obra.image}></img>
-                <strong>{this.state.obra.año}</strong>
-                <strong>{this.state.obra.author}</strong>
-                </div>
+                <img className="subasta-img" src={this.state.obra.image}></img><br></br>
+                <strong>{this.state.obra.año}</strong><br></br>
+                
+            </div>
                
-                </div>
+        </div>
                 
                
                 
-                </div>
-                </div>
+                
+            
                
-                <form>
-                <label for="puja">Pujas</label>
-                 <input className="input-puja" name="puja" type="text" placeholder="introduzca su puja"/>
                  
-                 </form><button onClick={this.sendMsg} >"SEND"</button>
+            <div className="puja-tab">
+                    <form className="form-puja">
                 
-                </main>
+                        <input className="input-puja" name="puja" type="text" placeholder="introduzca su puja" onChange = {(e) => this.handleState(e)} />
+                 
+                    </form><button onClick={this.sendMsg} >"SEND"</button>
+             </div> 
+             </div> 
+             </div>      
+                
+             
             )
         }
     
