@@ -36,10 +36,10 @@ class NavbarComponent extends Component {
 
             return (
      
-        <main>  
+        <main className="container">  
           <a  class="toggle-menu">&equiv;</a> 
 
-          <div class="menu">               
+          <div class="menu row">               
 
                     <h1 className="title">Art & auction</h1>
 
@@ -48,7 +48,7 @@ class NavbarComponent extends Component {
                     <small>Bienvenido: {this.props.loggedInUser}</small><br></br>                            
                 
                 
-              <ul>
+              <ul className="cerrar">
                   <li id="cerrar">
                                                    
                 

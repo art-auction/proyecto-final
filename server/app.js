@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 
 const session       = require('express-session');
+const MongoStore    = require('connect-mongo')(session);
 const passport      = require('passport');
 
 const cors = require('cors');
@@ -42,7 +43,8 @@ app.use(cors({
 app.use(session({
   secret: "dummyvalue",
   resave: true, 
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection})
 }));
 
 
