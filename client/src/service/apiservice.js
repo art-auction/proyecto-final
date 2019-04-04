@@ -33,14 +33,21 @@ class Apiservice {
             return response.data})
         .catch(err=>console.log(err))
     }
-    postPujas = (newpuja, idpuja) =>{
+    postPujas = (newpuja, idobra) =>{
         console.log(newpuja)
-        return this.service.post(`postpuja/${idpuja}`, newpuja)
+        return this.service.post(`postpuja/${idobra}`, newpuja)
         .then(response =>{
             console.log(response)
             return response.data})
             .catch(err =>console.log(err))
  
+    }
+    getPuja = (idobra) => {
+        return this.service.get(`getpuja/${idobra}`)
+        .then(response => {
+            return response.data
+        })
+        .catch(err => console.log(err));
     }
 
     
