@@ -69,9 +69,9 @@ class Subasta extends Component {
       }
      handleFormSubmit = e =>{
         e.preventDefault()
-        console.log(this.state.apuestas)
+        console.log(this.state)
         const apuestas = this.state.apuestas
-     this.servicePuja.postPujas(apuestas)
+     this.servicePuja.postPujas({sms: this.state.mensaje, user:this.props.User}, this.props.match.params.id)
      .then(response=>{
          this.setState({apuestas:[]})
          
