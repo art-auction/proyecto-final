@@ -55,13 +55,20 @@ class Signup extends Component {
       
     
       <div className={classes}>
+      <i class="fas fa-exclamation-triangle" onClick ={this.props.toggleSignup}></i>
       <div className="form-signup">
+      
         <form onSubmit={this.handleFormSubmit}>
+       
+
+
           <label>Username:</label><br></br>
           <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/><br></br>
           
           <label>Password:</label><br></br>
+          <i class="fas fa-key"></i>
           <input type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} /><br></br>
+          
           <label for="rol">Tipo de usuario</label><br></br>
                 <select onChange={ e => this.handleChange(e)} name="role" id="">
                   <option value="User">User</option>

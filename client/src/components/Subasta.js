@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client"
 import Obras from "./Obras"
 import Apiservice from "../service/apiservice"
 import { Redirect } from 'react-router-dom'
-import SalaDePujas from "../components/SalaDePujas"
+
 import ReactTimeout from 'react-timeout'
 import { isNumber } from 'util';
 
@@ -100,7 +100,7 @@ class Subasta extends Component {
             const max = Math.max(...this.state.puja.map(puja => puja.money));
             this.socket.emit("winner",{user:this.state.puja.find(pija => pija.money == max).user})
             // console.log(this.state.puja.find(pija => pija.money == max).user)
-        }, 1000)
+        }, 8000)
      }
 
       handleState = e => {

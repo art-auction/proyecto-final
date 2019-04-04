@@ -41,7 +41,7 @@ element.style {
 
 .Login {
   height: 100%;
-  width: 50rem;
+  width: 35rem;
   background: rgb(24, 24, 23);
   position: absolute;
   right: 0;
@@ -56,14 +56,14 @@ element.style {
 }
 
 .Login.hide {
-  right: -50rem;
+  right: -35rem;
   z-index: 999;
   
 }
 
 .Signup {
   height: 100%;
-  width: 50rem;
+  width: 35rem;
   background: rgb(24, 24, 23);
   position: absolute;
   right: 0;
@@ -78,7 +78,7 @@ element.style {
 }
 
 .Signup.hide {
-  right: -50rem;
+  right: -35rem;
  z-index: 999;
 }
 
@@ -324,9 +324,10 @@ a {
 }
 .toggle-menu {
   position: fixed;
-  right: 10px;
+  right: 5px;
   top: 00px;
   font-size: 3em;
+  margin-right: 2px;
 }
 ul {
   margin-top: 20px;
@@ -361,7 +362,13 @@ ul {
   display: block;
   padding: 10px 0;
   text-align: center
+
 }
+
+
+
+
+
 @media screen and (min-width: 880px) {
   .obras-menu{
   width: 70%
@@ -438,14 +445,14 @@ ul {
 a{
   
   font-size: 1.5em;
-  margin-right: 25px;   
-  color: white;
+  margin-left: 80px;  
+  color: black;
   font-weight: lighter;
  
 }
 
 a:hover { 
-  color: orangered;
+  color: grey;
 }
 #cerrar{
   margin-top: -23px
@@ -498,4 +505,9 @@ font-family: sans-serif;
 }
 .btn-send{
   padding-top: 800px;
+}
+.fa-exclamation-triangle{
+  margin-right: -470px;
+  margin-top: 10px;
+  color:white;
 }
