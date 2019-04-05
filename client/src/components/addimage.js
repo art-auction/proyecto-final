@@ -115,7 +115,7 @@ render() {
                 <h2>Nueva obra</h2>
                 <form onSubmit={this.handleSubmit}>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                             <label>Título</label>
                             <input type="text" className="form-control" name="title" value={this.state.obra.title} onChange={(e) => this.handleState(e)} />
                         </div>
@@ -127,14 +127,15 @@ render() {
                  <div className="form-group">
                             <label>Año</label>
                             <input type="text" className="form-control" name="año" value={this.state.obra.año} onChange={(e) => this.handleState(e)} />
-                 </div>
+                 </div> */}
                  
-
-                    <div className="form-group">
-                        <label>Imagen</label>
-                        <input type="file" className="form-control" onChange={(e) => this.handleFileUpload(e)} />
-                    </div>
-                    <div className="form-group">
+             
+                   <div className="form-group">
+                       <label>Imagen</label>
+                       <input type="file" className="form-control" onChange={(e) => this.handleFileUpload(e)} />
+                   </div>
+            
+                    {/* <div className="form-group">
                             <label>Descripción</label>
                             <input type="text" className="form-control" name="description" value={this.state.obra.description} onChange={(e) => this.handleState(e)} />
                  </div>
@@ -142,7 +143,7 @@ render() {
                             <label>Autor</label>
                             <input type="text" className="form-control" name="author" value={this.state.obra.author} onChange={(e) => this.handleState(e)} />
                  </div>
-                 
+                  */}
 
                  
 

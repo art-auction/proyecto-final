@@ -339,7 +339,7 @@ a {
   right: 5px;
   top: 00px;
   font-size: 3em;
-  margin-right: 2px;
+  margin-right: 10px;
 }
 ul {
   margin-top: 20px;
@@ -525,9 +525,11 @@ a:hover {
   
 }
 .input-puja{
-  border: solid rebeccapurple;
+  border-style: dotted; border-width: 1px;
+  border-color: rgba(36, 35, 37, 0.788);
+  border-radius: 10px;
   width: 200px;
-  height: 50px;
+  height: 58px;
   color: black
 }
 .cerrar li a{
@@ -582,7 +584,7 @@ font-family: sans-serif;
   max-height: 500px;
   margin-top: 10px;
   margin-right: 0px;
-  background-color: #4793be7a;
+  background-color: #b2d2c0;
   border-style: groove; 
   border-width: 1px; 
 
@@ -611,7 +613,7 @@ font-family: sans-serif;
 .box {
   width: 300px;
   margin: 50px auto;
-  background: #00bfb6;
+  background: #363f3f;
   padding: 20px;
   text-align: center;
   font-weight: 900;
@@ -626,8 +628,8 @@ font-family: sans-serif;
   height: 0px;
   position: absolute;
   border-left: 10px solid transparent;
-  border-right: 10px solid #00bfb6;
-  border-top: 10px solid #00bfb6;
+  border-right: 10px solid #363f3f;
+  border-top: 10px solid #363f3f;
   border-bottom: 10px solid transparent;
   right: 19px;
   bottom: -19px;
