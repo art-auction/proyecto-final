@@ -27,9 +27,10 @@ class Subasta extends Component {
             mensaje: "",
             apuestas:[],
             puja: [],
-            winner: ""
-
-           
+            winner: "",
+            moneyUser: 3000,
+            noMoney: false,
+            winner: false
 
         }
         this.socket = socketIOClient(this.state.endpoint);
@@ -70,6 +71,7 @@ class Subasta extends Component {
         })
         this.socket.on("winner", msg => {
             console.log(msg.user)
+            this.setState({winner:msg.user});
         })
     
     }
@@ -78,14 +80,21 @@ class Subasta extends Component {
         this.setState({...this.state, obraIdSelected: id})
       }
       sendMsg = () => {
-        this.socket.emit("new_message",{sms: this.state.mensaje, user:this.props.User})
+        if(this.state.moneyUser - this.state.mensaje >=0){
+            this.socket.emit("new_message",{sms: this.state.mensaje, user:this.props.User})
+            this.setState({moneyUser:this.state.moneyUser - this.state.mensaje, noMoney:false})
+        } else {
+            this.setState({noMoney:true})
+        }
+
         //title:this.state.obra.title
         console.log("meeee")
             //this.state.obraIdSelected)
       }
      handleFormSubmit = e =>{
         e.preventDefault()
-        console.log(this.state)
+        if(this.state.moneyUser - this.state.mensaje >=0){
+        
         const apuestas = this.state.apuestas
      this.servicePuja.postPujas({sms: this.state.mensaje, user:this.props.User}, this.props.match.params.id)
      .then(response=>{
@@ -93,7 +102,7 @@ class Subasta extends Component {
          
      })
      .catch(err=>console.log(err))
-
+    }
      }
       
      startSubasta = () => {
@@ -128,57 +137,63 @@ class Subasta extends Component {
             // console.log("entra")
             return (
             
-            <div className="row">
+            <div className="row col-sm-10">
             <div className="col-md-6 col-sm-8">
             
-        <div>
+            {this.state.winner ? <h1>{this.state.winner}</h1>:null}
             <div className="subasta-form">
-                <h2>{this.state.obra.title}</h2>
+                <h4>{this.state.obra.title}</h4>
+                <hr></hr>
                 <img className="subasta-img" src={this.state.obra.image}></img><br></br>
                 <strong>{this.state.obra.año}</strong><br></br>
                 
-                
+                <button className="time" onClick={this.startSubasta}>GO!!!!!</button>
             </div>
                
-        </div>
+       
                 
            </div>    
                 
-            
+          
                
-        <div className="col-md-6 col-sm-8">
-        <h2>{this.state.winner}</h2>
-        
-        <form className="form-puja" onSubmit={this.handleFormSubmit}>
+        <div className="col-md-6 col-sm-8 puja-cont">
+       
+            <p>{this.state.moneyUser}</p>
+        <span id="form-puja">
+        <form  onSubmit={this.handleFormSubmit}>
                 
-                        <input className="input-puja" value={this.state.mensaje} name="mensaje" type="text" onChange = {(e)=>this.handleState(e)} />
-                 <input type="submit" onClick={this.sendMsg}/>
-                    </form>
-                    <strong>{this.state.mensaje} </strong><br></br>
-                    </div>      
-                    <div className="pujas-tab">     
+                       
+                        <div className="put-box">
            {
                this.state.puja.map(apuesta => {
                console.log(apuesta)
                return(
                 
+                   <span>
+                  <div class="box sb4">
                    
+                       <strong>{apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
+                       </div>
                   
-                   
-                       <strong>Appuesta:{apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong>
-                       
-                  
-                  
+                       </span>
                  
                )
            })}
-             </div>
+            </div> 
+            {this.state.noMoney ? <p>NO MONEY POBRE</p> : null}
+            <input className="input-puja" value={this.state.mensaje} name="mensaje" type="number" onChange = {(e)=>this.handleState(e)} />
+                 <input className="input-puja" type="submit" onClick={this.sendMsg}/>
+                    </form>
+                    </span>
+                    {/* <strong>{this.state.mensaje} </strong><br></br> */}
                     
+             </div>       
                     {//<button onClick={this.sendMsg} >"SEND"</button>
                     }
+                    
              
 
-                    <button onClick={this.startSubasta}>GO!!!!!</button>
+                    
              </div> 
          
                

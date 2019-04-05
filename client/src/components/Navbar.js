@@ -43,16 +43,16 @@ class NavbarComponent extends Component {
 
                     <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
 
-                    <Link className="ref-obra" to='/obras'>Obras</Link> 
+                    <Link className="ref-obra link-1" to='/obras'>Obras</Link> 
 
-                    <small>Bienvenido: {this.props.loggedInUser}</small><br></br>                            
+                    <small>Hola, {this.props.loggedInUser}</small><br></br>                            
                 
                 
               <ul className="cerrar">
                   <li id="cerrar">
                                                    
                 
-					            <a className="link-nav" onClick={this.props.logoutUser} variant="outline-secondary" >Cerar Sesion</a>
+					            <a className="link-nav" onClick={this.props.logoutUser} variant="outline-secondary" >Cerrar Sesion</a>
 			          	</li>
                
               </ul>    
@@ -65,11 +65,12 @@ class NavbarComponent extends Component {
             }else{
 
               return(
-               
-      <main>                    
+            
+      <main >                    
         <a  class="toggle-menu">&equiv;</a>
+        
           <div class="menu">
-               
+         
                
           <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
                 
@@ -93,7 +94,7 @@ class NavbarComponent extends Component {
           </div>
         </main>
               
-
+    
 
               )
             }
@@ -101,7 +102,8 @@ class NavbarComponent extends Component {
         }
       }
         
-           
+      
+    
 
 
 

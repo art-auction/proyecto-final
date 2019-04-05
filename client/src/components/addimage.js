@@ -11,7 +11,8 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '40%'
+        width: '50%',
+        height: "50%"
     }
 }
 
@@ -25,7 +26,15 @@ super(pros)
 
 this.state = {
 modalIsOpen: false,
-     obra: []
+     obra: {
+        title: "",
+        price: "",
+        año: "",
+        image: "",
+        description: "",
+        author: "",
+
+     }
      
 
 }
@@ -74,7 +83,15 @@ this.service.postNewObra(uploadImage)
    this.service.postNewObra(this.state.obra)
 //    .then(x=> this.props.addingImage()) 
    this.setState({
-    obra: []
+    obra: {
+        title: "",
+        price: "",
+        año: "",
+        image: "",
+        description: "",
+        author: "",
+            
+     }
    })
    this.closeModal()
 
@@ -98,13 +115,37 @@ render() {
                 <h2>Nueva obra</h2>
                 <form onSubmit={this.handleSubmit}>
 
-                   
+                {/* <div className="form-group">
+                            <label>Título</label>
+                            <input type="text" className="form-control" name="title" value={this.state.obra.title} onChange={(e) => this.handleState(e)} />
+                        </div>
+              <div className="form-group">
+                            <label>Precio</label>
+                            <input type="text" className="form-control" name="price" value={this.state.obra.price} onChange={(e) => this.handleState(e)} />
+                 </div>
+                 
+                 <div className="form-group">
+                            <label>Año</label>
+                            <input type="text" className="form-control" name="año" value={this.state.obra.año} onChange={(e) => this.handleState(e)} />
+                 </div> */}
+                 
+             
+                   <div className="form-group">
+                       <label>Imagen</label>
+                       <input type="file" className="form-control" onChange={(e) => this.handleFileUpload(e)} />
+                   </div>
+            
+                    {/* <div className="form-group">
+                            <label>Descripción</label>
+                            <input type="text" className="form-control" name="description" value={this.state.obra.description} onChange={(e) => this.handleState(e)} />
+                 </div>
+                 <div className="form-group">
+                            <label>Autor</label>
+                            <input type="text" className="form-control" name="author" value={this.state.obra.author} onChange={(e) => this.handleState(e)} />
+                 </div>
+                  */}
 
-
-                    <div className="form-group">
-                        <label>Imagen</label>
-                        <input type="file" className="form-control" onChange={(e) => this.handleFileUpload(e)} />
-                    </div>
+                 
 
                     <button type="submit" className="btn btn-primary">Crear</button>
 
