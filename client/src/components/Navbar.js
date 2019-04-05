@@ -44,7 +44,7 @@ class NavbarComponent extends Component {
                     <h1 className="title">Art & auction</h1>
                     <a className="close"><i class="fas fa-times"></i></a>
 
-                    <Link className="ref-obra" to='/obras'>Obras</Link> 
+                    <Link className="ref-obra link-1" to='/obras'>Obras</Link> 
 
                     <small>Hola, {this.props.loggedInUser}</small><br></br>                            
                 

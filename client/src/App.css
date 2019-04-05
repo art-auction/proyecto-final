@@ -312,7 +312,8 @@ small{
   text-align: center;
   margin: 20px;
   font-size: 1.5em;
- 
+  position: absolute;
+  left: 39%;
 }
 .nav-principal{
   
@@ -423,7 +424,8 @@ ul {
 
   #cerrar li a{
     margin-top: -43px;
-    margin-right: 5px
+    margin-right: 5px;
+    
   }
   .menu {
     width: 100vw;
@@ -482,8 +484,9 @@ ul {
 }
 .ref-obra{
   float: left;
-  margin-top: 20px;
-  margin-left: 80px;
+  position: absolute;
+  left: 26%;
+  top:26%;
   font-size: 1.5em;
   font-weight: lighter;
   font-family: sans-serif;
@@ -505,7 +508,9 @@ a:hover {
 }
 #cerrar{
   margin-top: -20px;
-  margin-right: 10px
+  margin-right: 10px;
+  position: absolute;
+    right: 1%;
 }
 #title-subasta{
   margin-top: 62px;
@@ -634,4 +639,25 @@ font-family: sans-serif;
   top: 51%;
   
     transform: translate(-50%,-50%)
+}
+
+/* .link-1 {
+  transition: 0.3s ease;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  
+  
+}
+.link-1:hover {
+  border-top: 4px solid #ffffff;
+  border-bottom: 4px solid #ffffff;
+  
+} */
+
+.img-title{
+ 
+  width: 40%;
+
+
 }
