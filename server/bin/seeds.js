@@ -58,11 +58,11 @@ let artists = [
       
     },
     { 
-    title:"La nueva chica de la perla",
+    title:"To Nietzsche",
     price: 80,
     año: 2005,
-    image:"http://www.risasinmas.com/wp-content/uploads/2013/05/Johnny-Depp-de-la-perla.jpg",
-    description: "Virtuosa interpretación de la chica de la perla",
+    image:"https://res.cloudinary.com/dqphzmuq1/image/upload/v1554118146/paintings/To%20Nietzsche%20%2873cm%20x%2045cm%29.jpg.jpg",
+    description: "Retrato",
     author: "Carlos",
      
        }, 
@@ -76,11 +76,11 @@ let artists = [
          
        },
        {
-        title:"La lechera lego",
+        title:"Cat",
         año: 2008,
         price: 400,
-        image:"http://static.wixstatic.com/media/b844ec_557c3111122e47fe88d787b937fbeb48.jpg_srz_p_765_776_75_22_0.50_1.20_0.00_jpg_srz",
-        description: "Interpretación de la lechera",
+        image:"https://res.cloudinary.com/dqphzmuq1/image/upload/v1553963753/paintings/CAT%20%281%29.jpg.jpg",
+        description: "Retrato de un gato",
         author: "Dan",
          
        },

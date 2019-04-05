@@ -128,28 +128,29 @@ class Subasta extends Component {
             // console.log("entra")
             return (
             
-            <div className="row">
+            <div className="row col-sm-10">
             <div className="col-md-6 col-sm-8">
             
-        <div>
+        
             <div className="subasta-form">
-                <h2>{this.state.obra.title}</h2>
+                <h4>{this.state.obra.title}</h4>
+                <hr></hr>
                 <img className="subasta-img" src={this.state.obra.image}></img><br></br>
                 <strong>{this.state.obra.año}</strong><br></br>
                 
-                
+                <button className="time" onClick={this.startSubasta}>GO!!!!!</button>
             </div>
                
-        </div>
+       
                 
            </div>    
                 
-            
+          
                
-        <div className="col-md-6">
+        <div className="col-md-6 col-sm-8 puja-cont">
        
-        
-        <form className="form-puja" onSubmit={this.handleFormSubmit}>
+        <span id="form-puja">
+        <form  onSubmit={this.handleFormSubmit}>
                 
                        
                         <div className="put-box">
@@ -160,10 +161,10 @@ class Subasta extends Component {
                return(
                 
                    <span>
-                  
+                  <div class="box sb4">
                    
-                       <strong>Appuesta: {apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
-                       
+                       <strong>{apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
+                       </div>
                   
                        </span>
                  
@@ -171,16 +172,18 @@ class Subasta extends Component {
            })}
             </div> 
             <input className="input-puja" value={this.state.mensaje} name="mensaje" type="text" onChange = {(e)=>this.handleState(e)} />
-                 <input type="submit" onClick={this.sendMsg}/>
+                 <input className="input-puja" type="submit" onClick={this.sendMsg}/>
                     </form>
+                    </span>
                     <strong>{this.state.mensaje} </strong><br></br>
+                    
              </div>       
                     {//<button onClick={this.sendMsg} >"SEND"</button>
                     }
                     
              
 
-                    <button onClick={this.startSubasta}>GO!!!!!</button>
+                    
              </div> 
          
                
