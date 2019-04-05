@@ -327,7 +327,7 @@ a {
   right: 5px;
   top: 00px;
   font-size: 3em;
-  margin-right: 2px;
+  margin-right: 10px;
 }
 ul {
   margin-top: 20px;
@@ -455,7 +455,8 @@ a:hover {
   color: grey;
 }
 #cerrar{
-  margin-top: -23px
+  margin-top: -23px;
+  float: right;
 }
 #title-subasta{
   margin-top: 62px;
@@ -506,7 +507,7 @@ font-family: sans-serif;
 .btn-send{
   padding-top: 800px;
 }
-.fa-exclamation-triangle{
+.fa-times-circle{
   margin-right: -470px;
   margin-top: 10px;
   color:white;
@@ -529,3 +530,17 @@ font-family: sans-serif;
   overflow-y: scroll;
   max-height: 15px;
 }*/
+.titulo-flot{
+  margin-top:420px;
+  margin-left: 680px;
+  color: whitesmoke;
+  text-align: center;
+  z-index: 777;
+  position: absolute;
+  font-size: 6rem;
+  
+
+}
+.fa-home{
+  margin-top:27px;
+}

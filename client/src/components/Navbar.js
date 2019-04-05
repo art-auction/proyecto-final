@@ -41,7 +41,7 @@ class NavbarComponent extends Component {
 
           <div class="menu row">               
 
-                    <h1 className="title">Art & auction</h1>
+                    <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
 
                     <Link className="ref-obra" to='/obras'>Obras</Link> 
 
@@ -71,7 +71,7 @@ class NavbarComponent extends Component {
           <div class="menu">
                
                
-            <h1 className="title">Art & auction</h1>
+          <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
                 
                 <Link className="ref-obra" to='/obras'>Obras</Link>
                 

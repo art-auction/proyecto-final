@@ -63,12 +63,14 @@ class Login extends Component {
 
 
       <div className={classes}>
-      <i class="fas fa-exclamation-triangle" onClick ={this.props.toggleLogin}></i>
+      <i class="far fa-times-circle" onClick ={this.props.toggleLogin}></i>
+      
         <div className="login-form">
         
           <form onSubmit={this.handleFormSubmit}>
           
             <label>Username:</label><br></br>
+            <i class="far fa-user"></i>
             <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/><br></br>
 
 
