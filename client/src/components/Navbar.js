@@ -36,7 +36,7 @@ class NavbarComponent extends Component {
 
             return (
      
-        <main className="container">  
+        <main className="container nav">  
           <a  class="toggle-menu">&equiv;</a> 
 
           <div class="menu row">               
@@ -48,16 +48,14 @@ class NavbarComponent extends Component {
                     <small>Hola, {this.props.loggedInUser}</small><br></br>                            
                 
                 
-              <ul className="cerrar">
-                  <li id="cerrar">
+                  <div id="cerrar">
                                                    
                 
 					            <a className="link-nav" onClick={this.props.logoutUser} variant="outline-secondary" >Cerrar Sesion</a>
-			          	</li>
-               
-              </ul>    
+			          	</div>
 
-            </div>
+
+          </div>
       </main>
               
             )
@@ -66,7 +64,7 @@ class NavbarComponent extends Component {
 
               return(
             
-      <main >                    
+      <main className="nav">                    
         <a  class="toggle-menu">&equiv;</a>
         
           <div class="menu">
