@@ -39,13 +39,15 @@ class NavbarComponent extends Component {
         <main className="container nav">  
           <a  class="toggle-menu">&equiv;</a> 
 
-          <div class="menu row">               
+          <div class="menu row">    
+          <div class="livicon-evo"></div>           
+          
 
                     <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
 
                     <Link className="ref-obra link-1" to='/obras'>Obras</Link> 
 
-                    <small>Hola, {this.props.loggedInUser}</small><br></br>                            
+                    <small>Hola, {this.props.loggedInUser.username}</small><br></br>                            
                 
                 
                   <div id="cerrar">

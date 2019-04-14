@@ -477,7 +477,7 @@ font-family: sans-serif;
 #video_background {
   top:0;
   left: 0;
-  width: 100%;
+  width: 180%;
   height: 100%;
   min-width: 100vw;
   min-height: 100vh;
@@ -550,7 +550,7 @@ font-family: sans-serif;
 .titulo-flot{
   margin:23% 30%;
  
-  color: whitesmoke;
+  color: rgb(236, 232, 232);
   text-align: center;
   z-index: 777;
   position: absolute;
@@ -620,7 +620,9 @@ font-family: sans-serif;
 .nav{
 
 }
+.livicon-evo{
 
+}
 
 
 
