@@ -40,7 +40,7 @@ class NavbarComponent extends Component {
           <a  class="toggle-menu">&equiv;</a> 
 
           <div class="menu row">    
-          <div class="livicon-evo"></div>           
+          
           
 
                     <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
