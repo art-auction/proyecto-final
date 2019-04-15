@@ -69,6 +69,7 @@ render(){
         
         <div className="col-md-6">
         <img src={arg.image}/>
+        <button className="btn btn-danger">Delete</button>
         </div>
     ) 
     }) : null}
