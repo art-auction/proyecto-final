@@ -79,14 +79,14 @@ class NavbarComponent extends Component {
             <ul className="sesion">
                   
                 <li>
-                  <a  onClick ={this.props.toggleLogin} >Iniciar Sesión</a>                  
+                  <a  className="responsive" onClick ={this.props.toggleLogin} >Iniciar Sesión</a>                  
                           
                     
                 </li> 
                   
                   
                 <li>
-					         <a  onClick={this.props.toggleSignup} >Registrate</a>
+					         <a  className="responsive" onClick={this.props.toggleSignup} >Registrate</a>
 			          </li>
                
             </ul>           
