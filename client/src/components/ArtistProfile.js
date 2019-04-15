@@ -6,7 +6,11 @@ class ArtistProfile extends Component{
 
 constructor(props){
     super(props)
-    this.state = {profile: {}}
+    this.state = {
+        profile: {},
+        loggedInUser: null 
+    
+    }
     this.serviceProfile = new Apiservice()
 }
 
@@ -16,12 +20,29 @@ getProfile(){
     .then(response => this.setState({profile: response}))
         //
 }
+getArtists = ()=>{
+    return this.serviceObras.getObras()
+      .then(artists=>{
+          console.log(artists)
+          this.setState({
+              artists: artists
+          })
+      }
+         )
+ 
+  }
 
 componentDidMount(){
     this.getProfile()
 
 }
+componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
+}
 render(){
+    if(this.props.loggedInUser){
+        console.log(this.props.loggedInUser._id)
+    }
 
     //console.log(this.state.profile.obras)
     return(
@@ -34,7 +55,8 @@ render(){
        
         <p>El señor {this.state.profile.username} es una artista muy respetado en su país.
          Su estilo realista está influenciado por la obra de grandes maestros rusos del gupo "Los Itinerantes" y de otrso grandes maestros del barroco</p>
-         <AddImage  addingImage={this.getProfile}/>
+    {this.props.loggedInUser !== null && this.props.loggedInUser._id === this.state.profile._id ? <AddImage  addingImage={this.getProfile}/> : null}
+         
         </div>
         <article className="col-md-8 profile-art">
         <div className="container">
@@ -47,6 +69,7 @@ render(){
         
         <div className="col-md-6">
         <img src={arg.image}/>
+        <button className="btn btn-danger">Delete</button>
         </div>
     ) 
     }) : null}

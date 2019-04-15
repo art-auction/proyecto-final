@@ -53,7 +53,7 @@ class App extends Component {
       .then(e=>{
        // console.log(e)
         // this.state.loggedInUser = true;
-        if(e) this.setState({ ...this.state, loggedInUser:e.username}, () => {})
+        if(e) this.setState({ ...this.state, loggedInUser:e, }, () => {})
       })
       .catch(() => {
         this.setState({ ...this.state, loggedInUser:null})
@@ -87,7 +87,7 @@ class App extends Component {
       <div className="holaDan" />
  
         <Switch>
-  <Route exact path="/artist-profile/:id" component={ArtistProfile}/>
+  <Route exact path="/artist-profile/:id" render={(match) => <ArtistProfile {...match} loggedInUser={this.state.loggedInUser}></ArtistProfile>}/>
   <Route exact path="/obras" render={() => <Obras sendId={this.sendMsg} getObraId={this.getObraId}></Obras>}/>
   <Route exact path="/signup" component={Signup}/>
   <Route exact path="/login" component={Login}/>

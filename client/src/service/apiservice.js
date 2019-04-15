@@ -13,6 +13,7 @@ class Apiservice {
     getObras = () => {
         return this.service.get("/obras")
         .then(response => {
+            console.log(response.data)
             return response.data})
         .catch((err) => console.log(err))
     }

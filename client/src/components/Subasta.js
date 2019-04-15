@@ -111,7 +111,7 @@ class Subasta extends Component {
             this.socket.emit("winner",{user:this.state.puja.find(pija => pija.money == max).user})
            // this.setState({...this.state.winner, winner:this.state.winner.max.user})
             // console.log(this.state.puja.find(pija => pija.money == max).user)
-        }, 8000)
+        }, 3000)
      }
 
       handleState = e => {
@@ -140,14 +140,14 @@ class Subasta extends Component {
             <div className="row col-sm-10">
             <div className="col-md-6 col-sm-8">
             
-            {this.state.winner ? <h1>{this.state.winner}</h1>:null}
+            {this.state.winner ? <h1>El ganador es: {this.state.winner}</h1>:null}
             <div className="subasta-form">
                 <h4>{this.state.obra.title}</h4>
                 <hr></hr>
                 <img className="subasta-img" src={this.state.obra.image}></img><br></br>
                 <strong>{this.state.obra.año}</strong><br></br>
                 
-                <button className="time" onClick={this.startSubasta}>GO!!!!!</button>
+                
             </div>
                
        
@@ -158,7 +158,7 @@ class Subasta extends Component {
                
         <div className="col-md-6 col-sm-8 puja-cont">
        
-            <p>{this.state.moneyUser}</p>
+            <p className="tucredito">Tu crédito es: {this.state.moneyUser} CarlosCoin</p>
         <span id="form-puja">
         <form  onSubmit={this.handleFormSubmit}>
                 
@@ -181,7 +181,7 @@ class Subasta extends Component {
            })}
             </div> 
             {this.state.noMoney ? <p>NO MONEY POBRE</p> : null}
-            <input className="input-puja" value={this.state.mensaje} name="mensaje" type="number" onChange = {(e)=>this.handleState(e)} />
+            <input className="input-puja" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" onChange = {(e)=>this.handleState(e)} />
                  <input className="input-puja" type="submit" onClick={this.sendMsg}/>
                     </form>
                     </span>
@@ -192,7 +192,7 @@ class Subasta extends Component {
                     }
                     
              
-
+                    <button className="time" onClick={this.startSubasta}>GO!!!!!</button>
                     
              </div> 
          

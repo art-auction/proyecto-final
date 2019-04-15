@@ -183,7 +183,8 @@ h1{
 .profile-container{
  max-width: 100vw;
 background-color: black;
-background-size: contain
+background-size: contain;
+margin-top: -30px;
 }
 
 
@@ -314,7 +315,14 @@ small{
   font-size: 1.5em;
   position: absolute;
   left: 17%;
+  font-family: 'Roboto', sans-serif;
 }
+
+
+
+
+
+
 
 
 body {
@@ -340,7 +348,7 @@ ul {
   color: white;
 }
 .menu {
-  width: 80vw;
+  width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -377,10 +385,6 @@ ul {
 
 
 
-
-
-
-
 .title{
   margin-left: 20px;
   margin-top: -10px;
@@ -393,19 +397,18 @@ ul {
   
 }
 .fa, .fas {
-  
-  margin-top: 30px;
-  margin-right: 30px;
+ 
 }
 .ref-obra{
   float: left;
   position: absolute;
-  left: 8%;
+  left:8%;
   top:26%;
   font-size: 1.5em;
   font-weight: lighter;
   font-family: sans-serif;
-  color: rgb(201, 205, 209)
+  color: rgb(201, 205, 209);
+  font-family: 'Roboto', sans-serif;
   
 
 }
@@ -422,10 +425,11 @@ a:hover {
   color: grey;
 }
 #cerrar{
-  margin-top: -20px;
+  margin-top: 20px;
   margin-right: 10px;
   position: absolute;
     right: 1%;
+    color:white;
 }
 #title-subasta{
   margin-top: 62px;
@@ -443,9 +447,13 @@ a:hover {
   border-style: dotted; border-width: 1px;
   border-color: rgba(36, 35, 37, 0.788);
   border-radius: 10px;
-  width: 200px;
+  width: 188px;
   height: 58px;
-  color: black
+  color: black;
+  font-size: 22px;
+  font-weight: lighter;
+  background-color: lightgray;
+  margin-right: 10px;
 }
 .cerrar li a{
 display: block;
@@ -464,17 +472,27 @@ font-family: sans-serif;
 }
 
 
-
+ 
 #video_background {
+  /* position: absolute;
+  bottom: 0px;
+  right: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden; */
+
   position: absolute;
   top:0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   min-width: 100vw;
   min-height: 100vh;
-  z-index: -1;
-}
+  z-index: -1; 
+} 
 .btn-send{
   padding-top: 800px;
 }
@@ -495,25 +513,40 @@ font-family: sans-serif;
   overflow-y: scroll;
   border: dashed;
   width: 400px;
-  max-height: 500px;
-  margin-top: 10px;
+
+  max-height: 395px;
+  margin-top: 40px;
+
   margin-right: 0px;
   background-color: #b2d2c0;
   border-style: groove; 
   border-width: 1px; 
 
 }
-  .input-puja{
-    
-  }
+
+.tucredito {
+  margin-top: 20px;
+}
+
+.fa-gavel:before {
+  content: "\f0e3";
+  font-size: 25px;
+  margin-left: 10px;
+  max-width: 20px;
+}
+
+
 .close{
   visibility: hidden;
 }
 .time{
-  padding: 20px;
+  padding: 15px 30px;
   border-radius: 20px;
   background-color: rgb(76, 138, 173);
-  color: white
+  color: white;
+  position: absolute;
+  top: 46%;
+  right: -10%;
 
 }
 .time:hover {
@@ -524,19 +557,24 @@ font-family: sans-serif;
   overflow-y: scroll;
   max-height: 15px;
 }*/
-.titulo-flot{
-  margin-top:330px;
-  margin-left: 680px;
-  color: whitesmoke;
+.titulo-flot {
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-top: 10%;
+  width: 40%;
+  color: rgb(236, 232, 232);
   text-align: center;
   z-index: 777;
-  position: absolute;
-  font-size: 6rem;
+  
+  
   
 
 }
 .fa-home{
-  margin-top:27px;
+  position: absolute;
+  top: 9px;
+  left: 33px;
+  font-size: 60px;
 }
 .box {
   width: 300px;
@@ -611,6 +649,7 @@ font-family: sans-serif;
   .menu.abierto h1 {
     margin-left: 100%;
     margin-top: 50%;
+    font-family: 'Open Sans Condensed', sans-serif;
   }
   .subasta-form{
     float: left;
@@ -623,18 +662,21 @@ font-family: sans-serif;
   }
   
 
-  #cerrar li a{
+  #cerrar a{
     margin-top: -43px;
     margin-right: 5px;
+    font-family: 'Roboto', sans-serif;
+    
     
   }
   .menu {
-    width: 100vw;
+    width: 100%;
     height: 80px;
     transform: translateX(0);
     transition: none;
     background: #343A40;
-    
+   
+box-shadow: 47px 16px 35px -11px rgba(0,0,0,0.8);
   }
   .menu.abierto {
     transform: translateX(0);
@@ -659,9 +701,6 @@ font-family: sans-serif;
   .sesions{
     margin-top: 0px
   }
-  .responsive{
-    color: red;
-  
-  }
   
 }
+
