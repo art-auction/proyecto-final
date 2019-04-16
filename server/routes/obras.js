@@ -9,22 +9,10 @@ const ObraMaestra = require("../models/ObraMaestra")
 const uploader = require('../configs/cloudinary-setup');
 const Puja = require('../models/Puja');
 
-// router.get("/obras", (req, res) => {
-//     User.find({role:"Artist"})
-//        .then(data=>{
-//            data = data.map(e => ({obras:e.obras, _id:e._id, username: e.username}))
-//         res.json(data)})
-//        .catch(err=>console.log(err))
-      
-//    } )
+
 
 router.get("/obras", (req, res) =>{
-    // User.findById({}, (err, obrasMaestras)=>{
-    //     User.populate(obrasMaestras, {path: "author"},(err, obrasMaestras)=>{
-    //         console.log(obrasMaestras)
-    //         res.status(200).json(obrasMaestras)
-    //     })
-    // })
+  
     console.log("entra")
     User.find({role:"Artist"})
     .populate("obras")
@@ -68,7 +56,7 @@ router.post("/postobra",uploader.single("obra"), (req, res)=>{
 
 router.post("/postpuja/:id", (req, res)=>{
     const {sms, user} = req.body;
-    Puja.findOneAndUpdate({obra:req.params.id}, {$push:{pujaColection:{user, money:sms}}}, {new:true})
+    Puja.findOneAndUpdate({obra:req.params.id}, {$push:{pujaColection:{ $each:[{user, money:sms}], $position: 0 }}}, {new:true})
     .then(puja => {
         console.log(puja)
         res.json(puja)

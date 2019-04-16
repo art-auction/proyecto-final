@@ -27,10 +27,11 @@ class Subasta extends Component {
             mensaje: "",
             apuestas:[],
             puja: [],
-            winner: "",
             moneyUser: 3000,
             noMoney: false,
-            winner: false
+            winner: false,
+            negativValue: false,
+            valueBig: false
 
         }
         this.socket = socketIOClient(this.state.endpoint);
@@ -47,13 +48,17 @@ class Subasta extends Component {
     getSubastaObra(){
        return this.serviceSubasta.getObraSubasta(this.props.match.params.id)
        .then(obra => {
+
            this.serviceSubasta.getPuja(this.props.match.params.id)
            .then(puja => {
                console.log(puja.pujaColection[0])
 
                this.setState({...this.state, obra, puja:puja.pujaColection})})
            })
+           
     }
+
+
     componentDidMount(){
         const { endpoint } = this.state
         
@@ -63,16 +68,17 @@ class Subasta extends Component {
             console.log(msg)
             const _apuestas = [...this.state.puja];
             console.log(_apuestas)
-            _apuestas.push({user:msg.user, money:msg.sms});
+            _apuestas.unshift({user:msg.user, money:msg.sms});
             console.log(_apuestas)
             this.setState({
                 ...this.state,
                 puja: _apuestas
+                
             })
         })
         this.socket.on("winner", msg => {
             console.log(msg.user)
-            this.setState({winner:msg.user});
+            this.setState({winner:msg.user.username});
         })
     
     }
@@ -81,11 +87,18 @@ class Subasta extends Component {
         this.setState({...this.state, obraIdSelected: id})
       }
       sendMsg = () => {
-        if(this.state.moneyUser - this.state.mensaje >=0){
+        if(this.state.moneyUser - this.state.mensaje >=0 && this.state.puja[0].money < this.state.mensaje){
             this.socket.emit("new_message",{sms: this.state.mensaje, user:this.props.User})
-            this.setState({moneyUser:this.state.moneyUser - this.state.mensaje, noMoney:false})
-        } else {
-            this.setState({noMoney:true})
+            this.setState({moneyUser:this.state.moneyUser - this.state.mensaje, noMoney:false, negativValue:false})
+
+        } else if(this.state.puja[0].money > this.state.mensaje){
+            this.setState({...this.state,  valueBig:true})
+
+    }else if(this.state.mensaje >= 0 && this.state.mensaje <= 3000){
+        this.setState({...this.state,  negativValue:true})
+        
+    }else {
+            this.setState({...this.state, noMoney:true})
         }
 
         //title:this.state.obra.title
@@ -109,17 +122,24 @@ class Subasta extends Component {
      startSubasta = () => {
         this.props.setTimeout(() => {
             const max = Math.max(...this.state.puja.map(puja => puja.money));
+            //console.log(this.puja.money)          
             this.socket.emit("winner",{user:this.state.puja.find(pija => pija.money == max).user})
            // this.setState({...this.state.winner, winner:this.state.winner.max.user})
-            // console.log(this.state.puja.find(pija => pija.money == max).user)
+             
         }, 3000)
+        
      }
 
       handleState = e => {
         const { name, value } = e.target;
         console.log(name, value)
-        this.setState({...this.state,[name]:value}, () =>{console.log(this.state)})
-    }
+        //if(value >= 0 && value <= 3000 && this.state.puja[0].money < value){
+       this.setState({...this.state,[name]:value}, () =>{console.log(this.state)})
+    //}else if(this.state.puja[0].money > value){
+    //this.setState({...this.state,  valueBig:true})
+//}else
+//this.setState({...this.state,  negativValue:true})
+}  
        
 
 
@@ -146,15 +166,12 @@ class Subasta extends Component {
                 <h4>{this.state.obra.title}</h4>
                 <hr></hr>
                 <img className="subasta-img" src={this.state.obra.image}></img><br></br>
-                <strong>{this.state.obra.año}</strong><br></br>
+                <strong>{this.state.obra.año}</strong><br></br>                
                 
-                
-            </div>
-               
+            </div>    
        
                 
-           </div>    
-                
+           </div>                 
           
                
         <div className="col-md-6 col-sm-8 puja-cont">
@@ -164,7 +181,7 @@ class Subasta extends Component {
         <form  onSubmit={this.handleFormSubmit}>
                 
                        
-                        <div className="put-box">
+         <div className="put-box">
            {
                this.state.puja.map(apuesta => {
                console.log(apuesta)
@@ -180,9 +197,12 @@ class Subasta extends Component {
                  
                )
            })}
-            </div> 
-            {this.state.noMoney ? <p>NO MONEY POBRE</p> : null}
-            <input className="input-puja" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" onChange = {(e)=>this.handleState(e)} />
+        </div> 
+            {this.state.noMoney  ? <p>NO MONEY POBRE</p> : null}
+            {this.state.negativValue  ? <p>Hay que introducir el valor correcto</p> : null}
+            {this.state.valueBig  ? <p>Hay que introducir un valor mayor</p> : null}
+
+            <input className="input-puja" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" min="0" onChange = {(e)=>this.handleState(e)} />
                  <input className="input-puja" type="submit" onClick={this.sendMsg}/>
                     </form>
                     </span>
