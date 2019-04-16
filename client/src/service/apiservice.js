@@ -50,6 +50,12 @@ class Apiservice {
         })
         .catch(err => console.log(err));
     }
+    delete = (idobra)=>{
+        return this.service.get(`/deletobra/${idobra}`)
+        .then(response => {
+            return response.data})
+        .catch(err=>console.log(err))
+    }
 
     
 
