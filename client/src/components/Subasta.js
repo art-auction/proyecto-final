@@ -49,6 +49,7 @@ class Subasta extends Component {
        .then(obra => {
            this.serviceSubasta.getPuja(this.props.match.params.id)
            .then(puja => {
+               console.log(puja.pujaColection[0])
 
                this.setState({...this.state, obra, puja:puja.pujaColection})})
            })
@@ -172,7 +173,7 @@ class Subasta extends Component {
                    <span>
                   <div class="box sb4">
                    
-                       <strong>{apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
+                       <strong>{apuesta.user.username}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
                        </div>
                   
                        </span>
