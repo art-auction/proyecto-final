@@ -105,8 +105,11 @@ element.style {
   
   margin: 10px;
  /* box-shadow: 6px 15px 17px 7px rgba(0,0,0,0.27);*/
-  display: flex;
+  /* height: 400px;
+  width: 300px; */
+  /* display: flex; */
   justify-content: space-around;
+  object-fit: contain;
   
 }
 .card-body{
@@ -556,7 +559,18 @@ font-family: sans-serif;
   overflow-y: scroll;
   max-height: 15px;
 }*/
-
+.titulo-flot {
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-top: 10%;
+  max-width: 35%;
+  height: auto;
+  color: rgb(236, 232, 232);
+  text-align: center;
+  z-index: 777;
+  
+  
+}
 .fa-home{
   position: absolute;
   top: 9px;
@@ -616,7 +630,7 @@ font-family: sans-serif;
  .close{
     visibility: visible
   }
-  
+ 
   
   .title{
     margin-left: 20px;
@@ -624,18 +638,7 @@ font-family: sans-serif;
     font-size: 5em
   }
 
-  .titulo-flot {
-    margin-right: 30%;
-    margin-left: 30%;
-    margin-top: 30vh;
-    max-width: 30vw;
-    height: auto;
-    color: rgb(236, 232, 232);
-    text-align: center;
-    z-index: 777;
-    
   
-  }
   .menu.abierto .title{
     padding: 10% 25%;
     margin-left: 50%;
@@ -675,8 +678,7 @@ font-family: sans-serif;
     transform: translateX(0);
     transition: none;
     background: #343A59;
-   
-box-shadow: 47px 16px 35px -11px rgba(0,0,0,0.8);
+    box-shadow: 47px 16px 35px -11px rgba(0,0,0,0.8);
   }
   .menu.abierto {
     transform: translateX(0);
@@ -702,5 +704,21 @@ box-shadow: 47px 16px 35px -11px rgba(0,0,0,0.8);
     margin-top: 0px
   }
   
+}
+
+@media screen and (max-width: 600px){
+  
+  .titulo-flot {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 20%;
+    max-width: 75vw;
+    color: rgb(236, 232, 232);
+    text-align: center;
+    z-index: 777;
+    
+    
+  }
+
 }
 

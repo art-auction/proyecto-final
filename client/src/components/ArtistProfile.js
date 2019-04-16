@@ -11,6 +11,7 @@ constructor(props){
         loggedInUser: null 
     
     }
+   
     this.serviceProfile = new Apiservice()
 }
 
@@ -31,6 +32,13 @@ getArtists = ()=>{
          )
  
   }
+deleteObra = (id)=>{
+
+    this.serviceProfile.delete(id)
+    .then(res=>this.getProfile())
+    
+
+}
 
 componentDidMount(){
     this.getProfile()
@@ -69,7 +77,7 @@ render(){
         
         <div className="col-md-6">
         <img src={arg.image}/>
-        <button className="btn btn-danger">Delete</button>
+        <button className="btn btn-danger" onClick={() => this.deleteObra(arg._id)}>Delete</button>
         </div>
     ) 
     }) : null}

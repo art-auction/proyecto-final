@@ -77,5 +77,16 @@ router.get("/getpuja/:id", (req, res)=>{
 })
 
 
+router.get("/deletobra/:id", (req, res)=>{
+    //console.log(req.params)
+    //console.log(req.user.obras.forEach(el=>console.log(el)))
+    ObraMaestra.findByIdAndRemove({_id:req.params.id}, (err,obra)=>{})
+       .then(obraMaestra=>res.json(obraMaestra))
+       .catch(err=>console.log(err))
+        // if(err) res.json(err)
+        // else res.json("BORRADO")
+    
+})
+
 
 module.exports = router;
