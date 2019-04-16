@@ -37,9 +37,9 @@ class NavbarComponent extends Component {
             return (
      
         <main className="container nav">  
-          <a  class="toggle-menu">&equiv;</a> 
+          <a  className="toggle-menu">&equiv;</a> 
 
-          <div class="menu row">    
+          <div className="menu row">    
           
           
 
@@ -67,9 +67,9 @@ class NavbarComponent extends Component {
               return(
             
       <main className="nav">                    
-        <a  class="toggle-menu">&equiv;</a>
+        <a  className="toggle-menu">&equiv;</a>
         
-          <div class="menu">
+          <div className="menu">
          
                
           <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
@@ -79,14 +79,14 @@ class NavbarComponent extends Component {
             <ul className="sesion">
                   
                 <li>
-                  <a  className="responsive" onClick ={this.props.toggleLogin} >Iniciar Sesión</a>                  
+                  <a  id="responsive" onClick ={this.props.toggleLogin} >Iniciar Sesión</a>                  
                           
                     
                 </li> 
                   
                   
                 <li>
-					         <a  className="responsive" onClick={this.props.toggleSignup} >Registrate</a>
+					         <a  id="responsive" onClick={this.props.toggleSignup} >Registrate</a>
 			          </li>
                
             </ul>           

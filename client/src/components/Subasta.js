@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import socketIOClient from "socket.io-client"
-import Obras from "./Obras"
+//import Obras from "./Obras"
 import Apiservice from "../service/apiservice"
 import { Redirect } from 'react-router-dom'
 
 import ReactTimeout from 'react-timeout'
-import { isNumber } from 'util';
+//import { isNumber } from 'util';
 
 //import WebsocketConnetction from  "../socketFront/websocket"
 // import { threadId } from 'worker_threads';
@@ -170,12 +170,12 @@ class Subasta extends Component {
                return(
                 
                    <span>
-                  <div class="box sb4">
+                    <div class="box sb4">
                    
-                       <strong>{apuesta.user}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
-                       </div>
+                       <strong>{apuesta.user.username}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
+                    </div>
                   
-                       </span>
+                    </span>
                  
                )
            })}
