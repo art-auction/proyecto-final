@@ -49,6 +49,7 @@ class Subasta extends Component {
        .then(obra => {
            this.serviceSubasta.getPuja(this.props.match.params.id)
            .then(puja => {
+               console.log(puja.pujaColection[0])
 
                this.setState({...this.state, obra, puja:puja.pujaColection})})
            })
