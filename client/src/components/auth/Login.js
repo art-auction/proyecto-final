@@ -63,24 +63,24 @@ class Login extends Component {
 
 
       <div className={classes}>
-      <i class="far fa-times-circle" onClick ={this.props.toggleLogin}></i>
+      <i className="far fa-times-circle" onClick ={this.props.toggleLogin}></i>
       
         <div className="login-form">
         
           <form onSubmit={this.handleFormSubmit}>
           
             <label>Username:</label><br></br>
-            <i class="far fa-user"></i>
+            <i className="far fa-user"></i>
             
             <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/><br></br>
 
 
             <label>Password:</label><br></br>
-            <i class="fas fa-key"></i>
+            <i className="fas fa-key"></i>
             <input type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} /><br></br>
 
 
-            <label for="rol">Tipo de usuario</label><br></br>
+            <label htmlFor="rol">Tipo de usuario</label><br></br>
                 <select onChange={ e => this.handleChange(e)} name="role" id="">
                   <option value="User">User</option>
                   <option value="Artist">Artist</option>
