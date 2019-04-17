@@ -31,7 +31,8 @@ class Subasta extends Component {
             noMoney: false,
             winner: false,
             negativValue: false,
-            valueBig: false
+            valueBig: false,
+            pujasCero: false
 
         }
         this.socket = socketIOClient(this.state.endpoint);
@@ -87,14 +88,16 @@ class Subasta extends Component {
         this.setState({...this.state, obraIdSelected: id})
       }
       sendMsg = () => {
-        if(this.state.moneyUser - this.state.mensaje >=0 && this.state.puja[0].money < this.state.mensaje){
+          const min = this.state.puja.length === 0 ? 0 : this.state.puja[0].money
+        if(this.state.moneyUser - this.state.mensaje >=0 && min < this.state.mensaje  ){
+            
             this.socket.emit("new_message",{sms: this.state.mensaje, user:this.props.User})
-            this.setState({moneyUser:this.state.moneyUser - this.state.mensaje, noMoney:false, negativValue:false})
+            this.setState({moneyUser:this.state.moneyUser - this.state.mensaje, noMoney:false, negativValue:false, valueBig:false})
 
-        } else if(this.state.puja[0].money > this.state.mensaje){
+        } else if(min > this.state.mensaje){
             this.setState({...this.state,  valueBig:true})
 
-    }else if(this.state.mensaje >= 0 && this.state.mensaje <= 3000){
+    }else if(  this.state.mensaje >= 0 && this.state.mensaje <= 3000){
         this.setState({...this.state,  negativValue:true})
         
     }else {
@@ -139,7 +142,11 @@ class Subasta extends Component {
     //this.setState({...this.state,  valueBig:true})
 //}else
 //this.setState({...this.state,  negativValue:true})
-}  
+} 
+
+vaciarPujas = () =>{
+
+}
        
 
 
@@ -200,9 +207,9 @@ class Subasta extends Component {
         </div> 
             {this.state.noMoney  ? <p>NO MONEY POBRE</p> : null}
             {this.state.negativValue  ? <p>Hay que introducir el valor correcto</p> : null}
-            {this.state.valueBig  ? <p>Hay que introducir un valor mayor</p> : null}
+            {this.state.valueBig  ? <p>Hay que introducir un valor mayor a {this.state.puja[0].money}</p> : null}
 
-            <input className="input-puja" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" min="0" onChange = {(e)=>this.handleState(e)} />
+            <input className="input-puja" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" min="1" onChange = {(e)=>this.handleState(e)} />
                  <input className="input-puja" type="submit" onClick={this.sendMsg}/>
                     </form>
                     </span>
@@ -214,6 +221,7 @@ class Subasta extends Component {
                     
              
                     <button className="time" onClick={this.startSubasta}>GO!!!!!</button>
+                    {/* <button className="time" onClick={this.startSubasta}>Eliminar Pujas</button> */}
                     
              </div> 
          
