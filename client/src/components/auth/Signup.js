@@ -55,7 +55,7 @@ class Signup extends Component {
       
     
       <div className={classes}>
-      <i class="far fa-times-circle" onClick ={this.props.toggleSignup}></i>
+      <i className="far fa-times-circle" onClick ={this.props.toggleSignup}></i>
       
       <div className="form-signup">
       
@@ -64,11 +64,11 @@ class Signup extends Component {
 
 
           <label>Username:</label><br></br>
-          <i class="far fa-user"></i>
+          <i className="far fa-user"></i>
           <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/><br></br>
           
           <label>Password:</label><br></br>
-          <i class="fas fa-key"></i>
+          <i className="fas fa-key"></i>
           <input type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} /><br></br>
           
           <label for="rol">Tipo de usuario</label><br></br>

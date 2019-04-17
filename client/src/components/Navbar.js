@@ -43,7 +43,7 @@ class NavbarComponent extends Component {
           
           
 
-                    <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
+                    <Link  className="title" to='/'><i className="fas fa-home"></i></Link>
 
                     <Link className="ref-obra link-1" to='/obras'>Obras</Link> 
 
@@ -72,7 +72,7 @@ class NavbarComponent extends Component {
           <div className="menu">
          
                
-          <Link  className="title" to='/'><i class="fas fa-home"></i></Link>
+          <Link  className="title" to='/'><i className="fas fa-home"></i></Link>
                 
                 <Link className="ref-obra" to='/obras'>Obras</Link>
                 
