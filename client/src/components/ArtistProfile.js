@@ -67,8 +67,8 @@ render(){
          
         </div>
         <article className="col-md-8 profile-art">
-        <div className="container">
-        <div className="row">
+            <div className="container">
+            <div className="row">
            
             
     {this.state.profile.obras ? this.state.profile.obras.map(arg=> {

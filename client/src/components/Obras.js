@@ -47,13 +47,14 @@ render(){
     <h1>Obras</h1>
         <hr></hr>
     
-<div className="row card-container">
+<div className="card-container">
+<div className="container">
          
  {
   Array.isArray(this.state.artists) ? this.state.artists.map(artist=><CardObras key={artist._id}  sendId={this.sendMsg} {...artist} getObraId={this.getObraId}/>)
     : null//.artists.map(artist=><CardObras key={artist._id} {...artist}/>)
    }
-
+</div>
     </div>
 </div>
 

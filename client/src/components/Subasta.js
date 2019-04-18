@@ -32,7 +32,8 @@ class Subasta extends Component {
             winner: false,
             negativValue: false,
             valueBig: false,
-            pujasCero: false
+            pujasCero: false,
+           
 
         }
         this.socket = socketIOClient(this.state.endpoint);
@@ -78,8 +79,13 @@ class Subasta extends Component {
             })
         })
         this.socket.on("winner", msg => {
-            console.log(msg.user)
-            this.setState({winner:msg.user.username});
+            console.log(msg)
+            if(msg.winner === "Tiene que haber una puja"){
+                this.setState({winner: msg.winner})
+           
+            }else{
+                this.setState({winner:msg.user.username}) 
+            }
         })
     
     }
@@ -124,11 +130,16 @@ class Subasta extends Component {
       
      startSubasta = () => {
         this.props.setTimeout(() => {
+            const minWinner = this.state.puja.length === 0 ? 0 : this.state.puja[0].money
+            if(minWinner === 0){
+                this.socket.emit("winner",{ winner: "Tiene que haber una puja"})
+
+            }else{
             const max = Math.max(...this.state.puja.map(puja => puja.money));
-            //console.log(this.puja.money)          
+                    
             this.socket.emit("winner",{user:this.state.puja.find(pija => pija.money == max).user})
-           // this.setState({...this.state.winner, winner:this.state.winner.max.user})
-             
+           
+            }   
         }, 3000)
         
      }
@@ -136,15 +147,14 @@ class Subasta extends Component {
       handleState = e => {
         const { name, value } = e.target;
         console.log(name, value)
-        //if(value >= 0 && value <= 3000 && this.state.puja[0].money < value){
+        
        this.setState({...this.state,[name]:value}, () =>{console.log(this.state)})
-    //}else if(this.state.puja[0].money > value){
-    //this.setState({...this.state,  valueBig:true})
-//}else
-//this.setState({...this.state,  negativValue:true})
+    
 } 
 
 vaciarPujas = () =>{
+    
+    this.setState({...this.state,  puja:[], moneyUser: 3000})
 
 }
        
@@ -168,7 +178,12 @@ vaciarPujas = () =>{
             <div className="row col-sm-10">
             <div className="col-md-6 col-sm-8">
             
-            {this.state.winner ? <h1>El ganador es: {this.state.winner}</h1>:null}
+            { (this.state.winner === "Tiene que haber una puja") ?  <h1>{this.state.winner}</h1> : null}
+            { (this.state.winner === this.state.puja.user) ? <h1>El ganador es: {this.state.winner}</h1>: null}
+             
+     
+
+
             <div className="subasta-form">
                 <h4>{this.state.obra.title}</h4>
                 <hr></hr>
@@ -221,7 +236,7 @@ vaciarPujas = () =>{
                     
              
                     <button className="time" onClick={this.startSubasta}>GO!!!!!</button>
-                    {/* <button className="time" onClick={this.startSubasta}>Eliminar Pujas</button> */}
+                    <button className="vaciar" onClick={this.vaciarPujas}>Eliminar Pujas</button>
                     
              </div> 
          
