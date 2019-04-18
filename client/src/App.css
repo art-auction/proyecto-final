@@ -719,6 +719,26 @@ font-family: sans-serif;
     
     
   }
+  .menu {
+    width: 69%;
+    height: 100%;
+    background-color: rgb(43, 35, 73)
+  }
+  .Login.show{
+    width: 69%;
+    height: 100%;
+  }
+  .fa-times-circle {
+    margin-right: 70%;
+    margin-top: 10%
+  }
+  .login-form form{
+    top: 35%
+  }
+  /* .sesion li{
+    color: black
+  } */
+
 
 }
 

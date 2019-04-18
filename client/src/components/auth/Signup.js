@@ -71,8 +71,8 @@ class Signup extends Component {
           <i className="fas fa-key"></i>
           <input type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} /><br></br>
           
-          <label for="rol">Tipo de usuario</label><br></br>
-                <select onChange={ e => this.handleChange(e)} name="role" id="">
+          <label htmlFor="rol">Tipo de usuario</label><br></br>
+                <select onChange={ e => this.handleChange(e)} name="role">
                   <option value="User">User</option>
                   <option value="Artist">Artist</option>
                   

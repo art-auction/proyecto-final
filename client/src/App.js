@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   toggleSignup = () => {
-    console.log("entra")
+   
     if(this.state.showLogin) this.setState({showLogin: !this.state.showLogin})    
     this.setState({showSignup: !this.state.showSignup})
     this.ceckLoggedin()
