@@ -70,7 +70,7 @@ class NavbarComponent extends Component {
         <a  className="toggle-menu">&equiv;</a>
         
           <div className="menu">
-         
+          {/* <i className="far fa-times-circle" ></i> */}
                
           <Link  className="title" to='/'><i className="fas fa-home"></i></Link>
                 
