@@ -417,8 +417,13 @@ a:hover {
   margin-top: 50px
 
 }
+.subasta-form h4{
+  color:#8e1d3f;
+  font-size: 1.8em
+
+}
 .subasta-img{
-  width:65%;
+  width:45%;
   margin-top:0px
   
 }
@@ -481,21 +486,24 @@ font-family: sans-serif;
 .put-box{
   
   overflow-y: scroll;
-  border: dashed;
+ 
   width: 400px;
 
   max-height: 395px;
   margin-top: 40px;
 
   margin-right: 0px;
-  background-color: #b2d2c0;
-  border-style: groove; 
+  /* background-color:  rgb(197, 216, 241);; */
+  
   border-width: 1px; 
 
 }
 
 .tucredito {
   margin-top: 20px;
+  color: black;
+  font-size: 2em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .fa-gavel:before {
@@ -545,13 +553,14 @@ font-family: sans-serif;
 .box {
   width: 300px;
   margin: 50px auto;
-  background: #363f3f;
+  background:#f7b731;
   padding: 20px;
   text-align: center;
   font-weight: 900;
   color: #fff;
   font-family: arial;
   position: relative;
+  border-radius: 17px
 }
 
 .sb4:before {
@@ -585,8 +594,25 @@ font-family: sans-serif;
 .row{
   margin-left: 0px;
 }
+.subasta{
+  background-color: #f3f0f3;
 
+  min-height: 100vh;
+}
+.number{
+  width: 70%
+}
+.enviar{
+  width: 20%;
+  border-radius: 50px
+}
+.fa-clock{
+  font-size: 50px
+}
 
+/* .main-container{
+max-height: 100vh ;
+} */
 
 @media screen and (min-width: 600px) {
   .obras-menu{
@@ -626,7 +652,9 @@ font-family: sans-serif;
   }
 
   .puja-cont{
-   clear: both;
+   background-color: #bdc3c7;
+   min-height: 100vh;
+
   }
   
 
@@ -684,6 +712,9 @@ font-family: sans-serif;
     z-index: 777;
     
     
+  }
+  .subasta-img{
+    display: none;
   }
   /* .fa-home{
     visibility: hidden;

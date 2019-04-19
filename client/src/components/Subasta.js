@@ -177,8 +177,8 @@ vaciarPujas = () =>{
         } else {
             // console.log("entra")
             return (
-            
-            <div className="row col-sm-10">
+            <main className="main-container">
+            <div className="row subasta">
             <div className="col-md-6 col-sm-8">
 
             {this.state.hasStarted ?
@@ -201,14 +201,14 @@ vaciarPujas = () =>{
 
 
             <div className="subasta-form">
-                <h4>{this.state.obra.title}</h4>
+                {/* <h4>{this.state.obra.title}</h4> */}
                 <hr></hr>
                 <img className="subasta-img" src={this.state.obra.image}></img><br></br>
                 <strong>{this.state.obra.año}</strong><br></br>                
                 
             </div>    
-       
-                
+            <i class="far fa-clock" onClick={this.startSubasta}></i>
+            <button className="vaciar" onClick={this.vaciarPujas}>Eliminar Pujas</button>
            </div>                 
           
                
@@ -230,7 +230,7 @@ vaciarPujas = () =>{
                    
                        <strong>{apuesta.user.username}, puja: {apuesta.money} <i class="fas fa-gavel"></i> </strong><br></br>
                     </div>
-                  
+                    
                     </span>
                  
                )
@@ -240,8 +240,8 @@ vaciarPujas = () =>{
             {this.state.negativValue  ? <p>Hay que introducir el valor correcto</p> : null}
             {this.state.valueBig && this.state.puja[0] ? <p>Hay que introducir un valor mayor a {this.state.puja[0].money}</p> : null}
 
-            <input className="input-puja" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" min="1" onChange = {(e)=>this.handleState(e)} />
-                 <input className="input-puja" type="submit" onClick={this.sendMsg}/>
+            <input className="input-puja number" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" min="1" onChange = {(e)=>this.handleState(e)} />
+                 <input className="input-puja enviar" type="submit" onClick={this.sendMsg}/>
                     </form>
                     </span>
                     {/* <strong>{this.state.mensaje} </strong><br></br> */}
@@ -251,12 +251,12 @@ vaciarPujas = () =>{
                     }
                     
              
-                    <button className="time" onClick={this.startSubasta}>GO!!!!!</button>
-                    <button className="vaciar" onClick={this.vaciarPujas}>Eliminar Pujas</button>
+                    
+                    
                     
              </div> 
          
-               
+             </main>
              
             )
         }
