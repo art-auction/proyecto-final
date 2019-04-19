@@ -33,6 +33,7 @@ class Subasta extends Component {
             negativValue: false,
             valueBig: false,
             pujasCero: false,
+            mensajeGanador:"El ganador es:"
            
 
         }
@@ -154,7 +155,7 @@ class Subasta extends Component {
 
 vaciarPujas = () =>{
     
-    this.setState({...this.state,  puja:[], moneyUser: 3000})
+    this.setState({...this.state,  puja:[], moneyUser: 3000, mensajeGanador:""})
 
 }
        
@@ -179,7 +180,7 @@ vaciarPujas = () =>{
             <div className="col-md-6 col-sm-8">
             
             { (this.state.winner === "Tiene que haber una puja") ?  <h1>{this.state.winner}</h1> : null}
-            { (this.state.winner === this.state.puja.user) ? <h1>El ganador es: {this.state.winner}</h1>: null}
+            { (this.state.winner) ? <h1>{this.state.mensajeGanador} {this.state.winner}</h1>: null}
              
      
 
