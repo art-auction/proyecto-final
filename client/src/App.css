@@ -19,7 +19,8 @@
 
 .link-nav{
   color: white;
-  margin: 20px;  
+  margin-top: 80px;
+  margin-right: 92px;
 }
 
 .signup-form{
@@ -213,6 +214,7 @@ text-decoration: none
   font-family: sans-serif;
 }
 
+
 #container{
   width: 350px;
   height: 500px;
@@ -289,20 +291,24 @@ margin-right: 60px
 margin-top: 0px ;
 padding: 50px
 }
-small{
-  color:white;
+
+small {
+  color: white;
   text-align: center;
-  margin: 20px;
+  margin-left: 100px;
+  margin-top: 21px;
   font-size: 1.5em;
-  position: absolute;
-  left: 17%;
+  
   font-family: 'Roboto', sans-serif;
 }
 
 
 
 
+.sesion responsive{
+  color: green;
 
+}
 
 
 
@@ -375,7 +381,7 @@ ul {
 .ref-obra{
   float: left;
   position: absolute;
-  left:41%;
+  left:34%;
   top:26%;
   font-size: 1.5em;
   font-weight: lighter;
@@ -399,7 +405,7 @@ a:hover {
 }
 #cerrar{
   margin-top: 20px;
-  margin-right: 10px;
+  margin-right: 0px;
   position: absolute;
     right: 1%;
     color:white;
@@ -534,7 +540,7 @@ font-family: sans-serif;
   position: absolute;
   top: 9px;
   left: 33px;
-  font-size: 60px;
+  font-size: 40px;
 }
 .box {
   width: 300px;
@@ -589,9 +595,7 @@ font-family: sans-serif;
  .close{
     visibility: visible
   }
-  /* .fa-home{
-    visibility: hidden;
-  } */
+ 
   
   .title{
     margin-left: 20px;
@@ -701,16 +705,17 @@ font-family: sans-serif;
   .login-form form{
     top: 45%
   } 
-  /* .sesion li{
-    color: black
-  }
-*/
+
+  small {
+    color: white;
+    text-align: center;
+    margin-left: -29px;
+    margin-top: 15px;
+    font-size: 1.5em;
+    left: 17%;
+    font-family: 'Roboto', sans-serif;
+}
+ 
 
 }
 
-@media (min-width: 450px) {
-  .col-xs-12 {
-    width: 20%;
-    color: red;
-    }
-  }

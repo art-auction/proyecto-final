@@ -238,7 +238,7 @@ vaciarPujas = () =>{
         </div> 
             {this.state.noMoney  ? <p>NO MONEY POBRE</p> : null}
             {this.state.negativValue  ? <p>Hay que introducir el valor correcto</p> : null}
-            {this.state.valueBig  ? <p>Hay que introducir un valor mayor a {this.state.puja[0].money}</p> : null}
+            {this.state.valueBig && this.state.puja[0] ? <p>Hay que introducir un valor mayor a {this.state.puja[0].money}</p> : null}
 
             <input className="input-puja" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" min="1" onChange = {(e)=>this.handleState(e)} />
                  <input className="input-puja" type="submit" onClick={this.sendMsg}/>
