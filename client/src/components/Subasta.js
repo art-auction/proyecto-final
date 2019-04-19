@@ -32,6 +32,7 @@ class Subasta extends Component {
             winner: false,
             negativValue: false,
             valueBig: false,
+            hasStarted: false,
             pujasCero: false,
            
 
@@ -140,7 +141,8 @@ class Subasta extends Component {
             this.socket.emit("winner",{user:this.state.puja.find(pija => pija.money == max).user})
            
             }   
-        }, 3000)
+            this.setState({hasStarted : true})
+        }, 1000)
         
      }
 
@@ -177,11 +179,24 @@ vaciarPujas = () =>{
             
             <div className="row col-sm-10">
             <div className="col-md-6 col-sm-8">
-            
+
+            {this.state.hasStarted ?
+
+            this.state.winner === "Tiene que haber una puja" ? 
+
+                <h1>Tiene que haber una puja</h1> :
+
+                <h1>El ganador es: {this.state.winner}</h1>
+
+                : 
+
+                null
+            }
+{/*             
             { (this.state.winner === "Tiene que haber una puja") ?  <h1>{this.state.winner}</h1> : null}
-            { (this.state.winner === this.state.puja.user) ? <h1>El ganador es: {this.state.winner}</h1>: null}
+            { (this.state.winner === this.state.puja.user) ? <h1>El ganador es: {"Tiene que haber una puja"}</h1>: null}
              
-     
+      */}
 
 
             <div className="subasta-form">
