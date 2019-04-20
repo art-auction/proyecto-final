@@ -3,6 +3,7 @@ import socketIOClient from "socket.io-client"
 //import Obras from "./Obras"
 import Apiservice from "../service/apiservice"
 import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import ReactTimeout from 'react-timeout'
 //import { isNumber } from 'util';
@@ -142,7 +143,7 @@ class Subasta extends Component {
             this.socket.emit("winner",{user:this.state.puja.find(pija => pija.money == max).user})
            
             }   
-            this.setState({hasStarted : true})
+            this.setState({...this.state, hasStarted : true, mensajeGanador:"El ganador es:"})
         }, 1000)
         
      }
@@ -157,7 +158,7 @@ class Subasta extends Component {
 
 vaciarPujas = () =>{
     
-    this.setState({...this.state,  puja:[], moneyUser: 3000, mensajeGanador:""})
+    this.setState({...this.state,  puja:[], moneyUser: 3000, mensajeGanador:"", winner:""})
 
 }
        
@@ -179,16 +180,20 @@ vaciarPujas = () =>{
             return (
             <main className="main-container">
             <div className="row subasta">
-            <div className="col-md-6 col-sm-8">
+            <div className="col-md-6 col-sm-8 second-nav">
 
             {this.state.hasStarted ?
 
             this.state.winner === "Tiene que haber una puja" ? 
+  
+         
+         
+                <h1 className="ganador">Tiene que haber una puja</h1>
+    
+                 :
 
-                <h1>Tiene que haber una puja</h1> :
-
-                <h1>El ganador es: {this.state.winner}</h1>
-
+                <h1 className="ganador">{this.state.mensajeGanador} {this.state.winner}</h1>
+       
                 : 
 
                 null
@@ -202,19 +207,25 @@ vaciarPujas = () =>{
 
             <div className="subasta-form">
                 {/* <h4>{this.state.obra.title}</h4> */}
-                <hr></hr>
+               
                 <img className="subasta-img" src={this.state.obra.image}></img><br></br>
-                <strong>{this.state.obra.año}</strong><br></br>                
+                {/* <strong>{this.state.obra.año}</strong><br></br>                 */}
                 
             </div>    
-            <i class="far fa-clock" onClick={this.startSubasta}></i>
-            <button className="vaciar" onClick={this.vaciarPujas}>Eliminar Pujas</button>
+            <div className="icons-edit">
+            <Link to={`/`}> <i class="fas fa-arrow-left"></i></Link>
+            <Link to={`#`}> <i class="far fa-clock" onClick={this.startSubasta}></i></Link>
+            <Link to={`#`}> <i class="fas fa-ban vaciar" onClick={this.vaciarPujas}></i></Link>
+            </div>
+            
+          
+           
            </div>                 
           
                
         <div className="col-md-6 col-sm-8 puja-cont">
-       
-            <p className="tucredito">Tu crédito es: {this.state.moneyUser} CarlosCoin</p>
+                                      
+            <p className="tucredito">{this.state.moneyUser} <i class="fas fa-coins"></i></p>
         <span id="form-puja">
         <form  onSubmit={this.handleFormSubmit}>
                 
@@ -239,9 +250,11 @@ vaciarPujas = () =>{
             {this.state.noMoney  ? <p>NO MONEY POBRE</p> : null}
             {this.state.negativValue  ? <p>Hay que introducir el valor correcto</p> : null}
             {this.state.valueBig && this.state.puja[0] ? <p>Hay que introducir un valor mayor a {this.state.puja[0].money}</p> : null}
-
+            <div className="send-puja">
             <input className="input-puja number" placeholder="Puja aquí" value={this.state.mensaje} name="mensaje" type="number" min="1" onChange = {(e)=>this.handleState(e)} />
-                 <input className="input-puja enviar" type="submit" onClick={this.sendMsg}/>
+                 {/* <input className="input-puja enviar" type="submit" /> */}
+                <button className="enviar"><i className="fas fa-paper-plane" onClick={this.sendMsg}></i></button>
+                </div>
                     </form>
                     </span>
                     {/* <strong>{this.state.mensaje} </strong><br></br> */}

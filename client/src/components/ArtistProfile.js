@@ -77,7 +77,8 @@ render(){
         
         <div className="col-md-6">
         <img src={arg.image}/>
-        <button className="btn btn-danger" onClick={() => this.deleteObra(arg._id)}>Delete</button>
+        {this.props.loggedInUser !== null && this.props.loggedInUser._id === this.state.profile._id ? <button className="btn btn-danger" onClick={() => this.deleteObra(arg._id)}>Delete</button> : null}
+        
         </div>
     ) 
     }) : null}

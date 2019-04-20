@@ -428,15 +428,15 @@ a:hover {
   
 }
 .input-puja{
-  border-style: dotted; border-width: 1px;
-  border-color: rgba(36, 35, 37, 0.788);
-  border-radius: 10px;
+  
+ 
+  border-radius: 15px;
   width: 188px;
   height: 58px;
   color: black;
   font-size: 22px;
   font-weight: lighter;
-  background-color: lightgray;
+  background-color: rgb(226, 223, 223);
   margin-right: 10px;
 }
 .cerrar li a{
@@ -595,7 +595,7 @@ font-family: sans-serif;
   margin-left: 0px;
 }
 .subasta{
-  background-color: #f3f0f3;
+ 
 
   min-height: 100vh;
 }
@@ -603,16 +603,30 @@ font-family: sans-serif;
   width: 70%
 }
 .enviar{
-  width: 20%;
-  border-radius: 50px
+  width: 15%;
+  height:60px ;
+  border-radius: 50px;
+  background-color: rgb(51, 105, 153)
 }
 .fa-clock{
-  font-size: 50px
+  font-size: 50px;
+  padding: 15px
 }
-
-/* .main-container{
-max-height: 100vh ;
-} */
+.vaciar{
+  font-size: 50px;
+  padding: 15px
+}
+.fa-arrow-left{
+  font-size: 50px;
+  padding: 15px
+}
+.main-container{
+min-height: 100vh ;
+} 
+.fa-coins{
+  color:  #00dd85;
+  font-size: 40px
+}
 
 @media screen and (min-width: 600px) {
   .obras-menu{
@@ -621,7 +635,7 @@ max-height: 100vh ;
  .close{
     visibility: visible
   }
- 
+
   
   .title{
     margin-left: 20px;
@@ -713,13 +727,87 @@ max-height: 100vh ;
     
     
   }
+  .fa-ban{
+    color: white
+  }
+  .input-puja{
+    background-color:white 
+  }
+  .box{
+    background-color: #00dd85
+  }
+  #form-puja{
+    position: absolute;
+    top: 100px;
+    min-width: 10px;
+  }
+  .put-box{
+    height: 414px ;
+  }
+  .tucredito {
+    position: absolute;
+    top:  -126%;
+    left: 1%;
+    font-size: 1.5em;
+    color: white;
+   
+  }
+  .toggle-menu {
+    position: absolute;
+    right: 5px;
+    top: 00px;
+    font-size: 3em;
+    margin-right: 10px;
+    z-index: 10;
+    color: white
+}
+  .send-puja{
+    width: 106vw;
+    background-color: #bfc7c5;
+  }
+  .ganador {
+    position: absolute;
+    /* margin-top: 50px; */
+    font-size: 2em;
+    color: black;
+    top: 30%;
+}
+ .second-nav{
+  padding-left: 0px
+ }
+ .icons-edit {
+  position: absolute;
+  top: -3%;
+  background-color: rgb(102, 102, 156);
+  width: 100%;
+  height: 22%;
+}
+.main-container{
+ min-height: 100vh
+}
+.icons-edit a{
+  margin-top: 40px
+}
+  
+  .main-container{
+    min-height: 100vh ;
+    min-width: 100vw;
+    } 
+    
   .subasta-img{
     display: none;
+  }
+  .subasta{
+    min-height: 100vh ;
+    margin-top:  -70px
   }
   /* .fa-home{
     visibility: hidden;
   } */
-
+  .fa-paper-plane{
+    color:white;
+    font-size: 30px;
+  }
   .menu {
     width: 69%;
     height: 100%;
@@ -731,12 +819,24 @@ max-height: 100vh ;
   }
   .fa-times-circle {
     margin-right: 70%;
-    margin-top: 10%
+    margin-top: 10%;
+    
   }
   .login-form form{
     top: 45%
   } 
-
+  .fa-arrow-left{
+   font-size: 30px;
+    color: white
+  }
+  .fa-clock {
+    color: white;
+    font-size: 30px;
+  }
+  .fa-ban{
+    font-size: 30px;
+    margin-top: 12px;
+  }
   small {
     color: white;
     text-align: center;
