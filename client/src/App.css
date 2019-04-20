@@ -743,6 +743,7 @@ min-height: 100vh ;
   }
   .put-box{
     height: 414px ;
+    width: 100%
   }
   .tucredito {
     position: absolute;
@@ -762,15 +763,16 @@ min-height: 100vh ;
     color: white
 }
   .send-puja{
-    width: 106vw;
+    width: 114vw;
     background-color: #bfc7c5;
   }
   .ganador {
     position: absolute;
     /* margin-top: 50px; */
-    font-size: 2em;
+    font-size: 1.8em;
     color: black;
     top: 30%;
+    left: 10%;
 }
  .second-nav{
   padding-left: 0px
@@ -778,8 +780,8 @@ min-height: 100vh ;
  .icons-edit {
   position: absolute;
   top: -3%;
-  background-color: rgb(102, 102, 156);
-  width: 100%;
+  background-color: rgb(81, 136, 222);
+  width: 106%;
   height: 22%;
 }
 .main-container{
@@ -850,3 +852,150 @@ min-height: 100vh ;
 
 }
 
+@media screen and (max-width: 320px){
+
+
+
+  .titulo-flot {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    height: 40vh;
+    color: rgb(236, 232, 232);
+    text-align: center;
+    z-index: 777;
+    
+    
+  }
+  .fa-ban{
+    color: white
+  }
+  .input-puja{
+    background-color:white 
+  }
+  .box{
+    background-color: #00dd85
+  }
+  #form-puja{
+    position: absolute;
+    top: 100px;
+    min-width: 10px;
+  }
+  .put-box{
+    height: 414px ;
+    width: 100%
+  }
+  .tucredito {
+    position: absolute;
+    top:  -135%;
+    left: 1%;
+    font-size: 1.2em;
+    color: white;
+   
+  }
+  .toggle-menu {
+    position: absolute;
+    right: 5px;
+    top: 00px;
+    font-size: 3em;
+    margin-right: 10px;
+    z-index: 10;
+    color: white
+}
+  .send-puja{
+    width: 106vw;
+    background-color: #bfc7c5;
+  }
+  .ganador {
+    position: absolute;
+    /* margin-top: 50px; */
+    font-size: 1.8em;
+    color: black;
+    top: 30%;
+    left: 10%;
+}
+ .second-nav{
+  padding-left: 0px
+ }
+ .icons-edit {
+  position: absolute;
+  top: -3%;
+  background-color: rgb(81, 136, 222);
+  width: 106vw;
+  height: 22%;
+  
+}
+.icons-edit a{
+
+  margin: 0px
+
+}
+.fa-coins{
+  font-size: 30px
+}
+
+ .main-container{
+    min-height: 100vh ;
+    min-width: 100vw;
+    } 
+    
+  .subasta-img{
+    display: none;
+  }
+  .subasta{
+    min-height: 100vh ;
+    margin-top:  -70px
+  }
+  /* .fa-home{
+    visibility: hidden;
+  } */
+  .fa-paper-plane{
+    color:white;
+    font-size: 30px;
+  }
+  .menu {
+    width: 69%;
+    height: 100%;
+    background-color: rgb(43, 35, 73)
+  }
+  .Login.show{
+    width: 100%;
+    height: 100%;
+  }
+  .fa-times-circle {
+    margin-right: 70%;
+    margin-top: 10%;
+    
+  }
+  .login-form form{
+    top: 45%
+  } 
+  .fa-arrow-left{
+   font-size: 30px;
+    color: white
+  }
+  .fa-clock {
+    color: white;
+    font-size: 30px;
+  }
+  .fa-ban{
+    font-size: 30px;
+    margin-top: 12px;
+  }
+  small {
+    color: white;
+    text-align: center;
+    margin-left: -29px;
+    margin-top: 15px;
+    font-size: 1.5em;
+    left: 17%;
+    font-family: 'Roboto', sans-serif;
+}
+ 
+
+
+
+
+
+}
