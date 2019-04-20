@@ -8,7 +8,7 @@ const CardObras = artist => {
 
     return (        
         <div className="row ">
-            <div className="col-sm-12 col-md-6 col-lg-4">
+            <div className="col-sm-12 col-md-6 col-lg-4 obras">
 
 
                 <h5 className="card-title">{artist.username}</h5>

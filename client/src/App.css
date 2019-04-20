@@ -20,7 +20,7 @@
 .link-nav{
   color: white;
   margin-top: 80px;
-  margin-right: 92px;
+  margin-right: 73px;
 }
 
 .signup-form{
@@ -423,8 +423,8 @@ a:hover {
 
 }
 .subasta-img{
-  width:45%;
-  margin-top:0px
+  width:55%;
+  margin-top:20px
   
 }
 .input-puja{
@@ -553,7 +553,7 @@ font-family: sans-serif;
 .box {
   width: 300px;
   margin: 50px auto;
-  background:#f7b731;
+  background:#00BFA5;
   padding: 20px;
   text-align: center;
   font-weight: 900;
@@ -627,6 +627,11 @@ min-height: 100vh ;
   color:  #00dd85;
   font-size: 40px
 }
+.second-nav{
+  padding-left: 0px;
+  background-color: #c5dade;
+  
+ }
 
 @media screen and (min-width: 600px) {
   .obras-menu{
@@ -642,7 +647,8 @@ min-height: 100vh ;
     margin-top: 100px;
     font-size: 5em
   }
-
+ 
+  
   
   .menu.abierto .title{
     padding: 10% 25%;
@@ -666,7 +672,7 @@ min-height: 100vh ;
   }
 
   .puja-cont{
-   background-color: #bdc3c7;
+   background-color: white;
    min-height: 100vh;
 
   }
@@ -727,6 +733,22 @@ min-height: 100vh ;
     
     
   }
+.responsive{
+  padding-top: 25%;
+}
+  
+  .ref-obra{
+   
+    left: 32%;
+    padding-top: 18%;
+  }
+
+
+  .menu.abierto ul li{
+    text-align: center
+  }
+
+
   .fa-ban{
     color: white
   }
@@ -765,6 +787,7 @@ min-height: 100vh ;
   .send-puja{
     width: 114vw;
     background-color: #bfc7c5;
+    margin-bottom: 0px;
   }
   .ganador {
     position: absolute;
@@ -775,7 +798,10 @@ min-height: 100vh ;
     left: 10%;
 }
  .second-nav{
-  padding-left: 0px
+  padding-left: 0px;
+  background-color: white
+ 
+  
  }
  .icons-edit {
   position: absolute;
@@ -803,9 +829,12 @@ min-height: 100vh ;
     min-height: 100vh ;
     margin-top:  -70px
   }
-  /* .fa-home{
-    visibility: hidden;
-  } */
+   .fa-home{
+    position: absolute;
+    top: 9px;
+    left: 36%;
+    font-size: 40px;
+  } 
   .fa-paper-plane{
     color:white;
     font-size: 30px;
@@ -816,6 +845,10 @@ min-height: 100vh ;
     background-color: rgb(43, 35, 73)
   }
   .Login.show{
+    width: 100%;
+    height: 100%;
+  }
+  .Signup.show{
     width: 100%;
     height: 100%;
   }
@@ -848,7 +881,18 @@ min-height: 100vh ;
     left: 17%;
     font-family: 'Roboto', sans-serif;
 }
- 
+select {
+  word-wrap: normal;
+  color: white;
+}
+.artist-text {
+  margin-top: 0px;
+  margin-left: 5%;
+  padding: 0px;
+}
+.obras{
+  margin-bottom: 10%;
+}
 
 }
 
@@ -916,7 +960,8 @@ min-height: 100vh ;
     left: 10%;
 }
  .second-nav{
-  padding-left: 0px
+  padding-left: 0px;
+  background-color: #939a98;
  }
  .icons-edit {
   position: absolute;

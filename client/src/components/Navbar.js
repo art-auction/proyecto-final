@@ -41,7 +41,7 @@ class NavbarComponent extends Component {
 
           <div className="menu row">    
           
-          
+         
 
                     <Link  className="title" to='/'><i className="fas fa-home"></i></Link>
 
@@ -72,21 +72,23 @@ class NavbarComponent extends Component {
           <div className="menu">
           {/* <i className="far fa-times-circle" ></i> */}
                
-          <Link  className="title" to='/'><i className="fas fa-home"></i></Link>
+          <Link  className="title" to='/'><i className="fas fa-home"></i> </Link>
+
+          
                 
                 <Link className="ref-obra" to='/obras'>Obras</Link>
                 
             <ul className="sesion">
                   
                 <li>
-                  <a  id="responsive" onClick ={this.props.toggleLogin} >Iniciar Sesión</a>                  
+                  <a  className="responsive" onClick ={this.props.toggleLogin} >Iniciar Sesión</a>                  
                           
                     
                 </li> 
                   
                   
                 <li>
-					         <a  id="responsive" onClick={this.props.toggleSignup} >Registrate</a>
+					         <a  className="responsive" onClick={this.props.toggleSignup} >Registrate</a>
 			          </li>
                
             </ul>           
