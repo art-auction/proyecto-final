@@ -745,6 +745,9 @@ min-height: 100vh ;
     
     
   }
+  .card-obras{
+    margin: 18px
+  }
 .responsive{
   padding-top: 25%;
 }
@@ -752,6 +755,7 @@ min-height: 100vh ;
   .ref-obra{
    
     left: 32%;
+    top:32%
    
   }
 
