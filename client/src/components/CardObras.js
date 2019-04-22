@@ -16,6 +16,7 @@ const CardObras = artist => {
                     Su estilo realista está influenciado por la obra de grandes maestros rusos
                     del grupo "Los Itinerantes" y de otros grandes maestros del barroco</p>
 
+
                 <Link className="btn btn-sm btn-outline-dark" onClick={console.log(artist)} to={`/artist-profile/${artist._id}`}>Perfil de artista</Link>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-8">
