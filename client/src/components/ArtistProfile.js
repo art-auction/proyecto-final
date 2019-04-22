@@ -61,8 +61,8 @@ render(){
         <div className="col-md-4 inf-artist">
         <h1>{this.state.profile.username}</h1>
        
-        <p>El señor {this.state.profile.username} es una artista muy respetado en su país.
-         Su estilo realista está influenciado por la obra de grandes maestros rusos del gupo "Los Itinerantes" y de otrso grandes maestros del barroco</p>
+        <p>El señor {this.state.profile.username} es un artista muy respetado en su país.
+         Su estilo realista está influenciado por la obra de grandes maestros rusos del gupo "Los Itinerantes" y de otros grandes maestros del barroco</p>
     {this.props.loggedInUser !== null && this.props.loggedInUser._id === this.state.profile._id ? <AddImage  addingImage={this.getProfile}/> : null}
          
         </div>

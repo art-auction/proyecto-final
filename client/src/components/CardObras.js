@@ -12,7 +12,7 @@ const CardObras = artist => {
 
 
                 <h5 className="card-title">{artist.username}</h5>
-                <p className="artist-text">El señor {artist.username} es una artista muy respetado en su país.
+                <p className="artist-text">El señor {artist.username} es un artista muy respetado en su país.
                     Su estilo realista está influenciado por la obra de grandes maestros rusos
                     del grupo "Los Itinerantes" y de otros grandes maestros del barroco</p>
 
